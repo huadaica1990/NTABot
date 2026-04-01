@@ -187,15 +187,18 @@ class BotEngine:
                      f"game({pt.game_x},{pt.game_y}) {pt.label}")
             pt.status = "going"
             if self.on_refresh: self.on_refresh()
-            # Lấy lock ADB để tấn công
+            # Lấy lock ADB để tấn công (giải phóng ngay sau khi chọn quân xong)
             ADB_LOCK.acquire()
             self.log("[Bot] 🔓 Đã lấy ADB lock")
             try:
-                ok = self._attack(pt)
+                ok, march_deadline = self._attack(pt)
             finally:
                 ADB_LOCK.release()
                 self.log("[Bot] 🔒 Trả ADB lock")
             if ok:
+                # Chờ hành quân NGOÀI lock — không cần ADB
+                self._set(State.WAIT_DONE)
+                self._wait_done(march_deadline=march_deadline)
                 attack_count += 1
                 pt.status = "process"
                 if self.on_refresh: self.on_refresh()
@@ -276,11 +279,14 @@ class BotEngine:
                 ADB_LOCK.acquire()
                 self.log("[Bot] 🔓 Đã lấy ADB lock")
                 try:
-                    ok = self._attack(pt)
+                    ok, march_deadline = self._attack(pt)
                 finally:
                     ADB_LOCK.release()
                     self.log("[Bot] 🔒 Trả ADB lock")
                 if ok:
+                    # Chờ hành quân NGOÀI lock — không cần ADB
+                    self._set(State.WAIT_DONE)
+                    self._wait_done(march_deadline=march_deadline)
                     attack_count += 1
                     pt.status = "process"
                     if self.on_refresh: self.on_refresh()
@@ -468,7 +474,9 @@ class BotEngine:
             self.log(f"[Nav] OCR sau tap lỗi: {_eb}")
         return True
 
-    def _attack(self, pt: AttackPoint) -> bool:
+    def _attack(self, pt: AttackPoint) -> tuple:
+        """Thực hiện tấn công. Trả về (ok, march_deadline).
+        Không gọi _wait_done — caller chịu trách nhiệm chờ ngoài ADB lock."""
         # 0. Brain: quet mau quân trước khi đánh
         if self.cfg.army_health_enabled:
             health_summary = self._scan_army_health(required_names=self.cfg.troop_names, next_label=pt.label)
@@ -486,7 +494,7 @@ class BotEngine:
         nav_ok = self.navigate_to(pt.game_x, pt.game_y, force_tap=1)
         if not nav_ok:
             self.log("[Bot] Navigate that bai")
-            return False
+            return False, 0
         # Cap nhat nhan neu OCR phat hien duoc
         if getattr(self, '_detected_label', None):
             old_lbl = pt.label
@@ -505,7 +513,7 @@ class BotEngine:
             cap = self._wait_capture()
             if not cap:
                 self.adb.tap(50, 200)   # dong popup rac
-                return False
+                return False, 0
 
         # 3. Click Chiem - toa do co dinh
         self.log(f"[Bot] Click Chiem @ (486, 704)")
@@ -542,32 +550,24 @@ class BotEngine:
                 time.sleep(1.5)
             else:
                 self.log(f"[Bot] ❌ Đã thử {MAX_RETRIES} lần, popup = '{ptype}' → bỏ qua điểm này")
-                return False
+                return False, 0
 
         # 4. Chon quan
         self._set(State.SELECTING)
         ok = self.sel.select()
         if not ok:
-            self.log("[Bot] Chon quan that bai"); return False
+            self.log("[Bot] Chon quan that bai"); return False, 0
 
         # Log so quan da chon (max_troops la toi da, khong phai toi thieu)
         _selected = len([k for k in getattr(self.sel, "_last_chosen_keys", []) if k])
         self.log(f"[Bot] ✅ Đã chọn {_selected}/{self.cfg.max_troops} quân")
 
-        # 5. Cho xong (dung march_deadline neu co)
-        self._set(State.WAIT_DONE)
+        # Tính march_deadline để caller gọi _wait_done() ngoài ADB lock
         march_secs  = self.sel.last_march_seconds
         march_start = self.sel.march_start_time
-        if march_secs > 0 and march_start > 0:
-            march_deadline = march_start + march_secs
-        else:
-            march_deadline = 0
-        self._wait_done(march_deadline=march_deadline)
-        # process = quan da den noi (sau khi het TG hanh quan)
-        if self.cur_pt:
-            self.cur_pt.status = "process"
-            if self.on_refresh: self.on_refresh()
-        return True
+        march_deadline = (march_start + march_secs
+                          if march_secs > 0 and march_start > 0 else 0)
+        return True, march_deadline
 
     def _wait_capture(self):
         dead = time.time() + self.cfg.popup_timeout

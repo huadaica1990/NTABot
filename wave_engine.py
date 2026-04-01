@@ -263,7 +263,6 @@ class WaveGroupEngine:
         except Exception: pass
 
         self.log(f"Tap giữa ({cx},{cy})")
-        self.adb.tap(cx, cy)
         if _tap_twice:
             time.sleep(0.6); self.adb.tap(cx, cy)
 

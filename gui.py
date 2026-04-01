@@ -73,8 +73,10 @@ class GUI(tk.Tk):
         self.spin_eng = SpinEngine(self.bot.adb, self._log, det=self.bot.det)
         self.spin_eng.in_city = self._in_city
         self.tg_bot = TelegramBot(self.cfg.telegram_token, self.cfg.telegram_chat_id, self._log)
-        self.tg_bot.on_command = self._telegram_on_command
-        self.tg_bot.on_tap = self._telegram_on_tap
+        self.tg_bot.on_command        = self._telegram_on_command
+        self.tg_bot.on_tap            = self._telegram_on_tap
+        self.tg_bot.on_list_devices   = self._tg_list_devices
+        self.tg_bot.on_device_status  = self._tg_device_status
 
         self.bot.on_state = self._on_state
         self.bot.on_captcha = self._stop_all_captcha
@@ -257,7 +259,10 @@ class GUI(tk.Tk):
                     f"{k[0]},{k[1]}": v
                     for k, v in results.items()
                 },
-                "alliances": ally_text
+                "alliances": ally_text,
+                "city_x":      getattr(self, "_spy_city_x",      None) and self._spy_city_x.get(),
+                "city_y":      getattr(self, "_spy_city_y",      None) and self._spy_city_y.get(),
+                "march_speed": getattr(self, "_spy_march_speed", None) and self._spy_march_speed.get(),
             }
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
@@ -300,6 +305,12 @@ class GUI(tk.Tk):
                 self._spy_alliance_entry.delete(0, "end")
                 self._spy_alliance_entry.insert(0, ally_text)
                 self._spy_parse_alliances()
+            # Restore Main City + march speed
+            for attr, key in [("_spy_city_x","city_x"),("_spy_city_y","city_y"),
+                               ("_spy_march_speed","march_speed")]:
+                val = data.get(key)
+                if val and hasattr(self, attr):
+                    getattr(self, attr).set(val)
             if hasattr(self, "_spy_refresh_tree"):
                 self._spy_refresh_tree()
             self._spy_loaded = True
@@ -3172,10 +3183,10 @@ class GUI(tk.Tk):
         # Treeview danh sách toạ độ
         tbl_frame = tk.Frame(cfg_sec, bg=C["panel"])
         tbl_frame.pack(fill="both", expand=True, padx=4, pady=2)
-        spy_cols = ("#", "X", "Y", "Ghi chú", "LM", "Loại", "Bảo vệ", "🗺")
+        spy_cols = ("#", "X", "Y", "Ghi chú", "LM", "Loại", "Bảo vệ", "Hành quân", "🗺")
         self._spy_tree = ttk.Treeview(tbl_frame, columns=spy_cols,
                                        show="headings", height=12)
-        for col, w in [("#",30),("X",50),("Y",50),("Ghi chú",70),("LM",60),("Loại",60),("Bảo vệ",110),("🗺",36)]:
+        for col, w in [("#",30),("X",50),("Y",50),("Ghi chú",70),("LM",60),("Loại",60),("Bảo vệ",110),("Hành quân",75),("🗺",36)]:
             self._spy_tree.heading(col, text=col)
             self._spy_tree.column(col, width=w, anchor="center")
         sb = ttk.Scrollbar(tbl_frame, orient="vertical",
@@ -3206,6 +3217,34 @@ class GUI(tk.Tk):
         tk.Button(tb2, text="💾 Xuất CSV", bg=C["card"], fg=C["text"],
                   relief="flat", font=("Segoe UI", 8), padx=6, pady=3,
                   command=self._spy_export_csv).pack(side="left", padx=2)
+
+        # ── Thành chính + tốc độ hành quân ──
+        city_sec = self._sec(lf, "🏰 Thành chính")
+        city_row = tk.Frame(city_sec, bg=C["panel"]); city_row.pack(fill="x", padx=4, pady=4)
+        tk.Label(city_row, text="X:", bg=C["panel"], fg=C["text"],
+                 font=("Segoe UI", 9)).pack(side="left")
+        self._spy_city_x = tk.StringVar(value="")
+        tk.Entry(city_row, textvariable=self._spy_city_x, width=6,
+                 bg=C["entry"], fg=C["text"], insertbackground="white",
+                 relief="flat", font=("Segoe UI", 9)).pack(side="left", padx=2)
+        tk.Label(city_row, text="Y:", bg=C["panel"], fg=C["text"],
+                 font=("Segoe UI", 9)).pack(side="left", padx=(8,0))
+        self._spy_city_y = tk.StringVar(value="")
+        tk.Entry(city_row, textvariable=self._spy_city_y, width=6,
+                 bg=C["entry"], fg=C["text"], insertbackground="white",
+                 relief="flat", font=("Segoe UI", 9)).pack(side="left", padx=2)
+        tk.Label(city_row, text="Tốc độ (s/ô):", bg=C["panel"], fg=C["text"],
+                 font=("Segoe UI", 9)).pack(side="left", padx=(10,0))
+        self._spy_march_speed = tk.StringVar(value="30")
+        tk.Entry(city_row, textvariable=self._spy_march_speed, width=5,
+                 bg=C["entry"], fg=C["text"], insertbackground="white",
+                 relief="flat", font=("Segoe UI", 9)).pack(side="left", padx=2)
+        tk.Label(city_sec, text="  (tính thời gian hành quân theo khoảng cách Manhattan)",
+                 bg=C["panel"], fg=C["muted"],
+                 font=("Segoe UI", 7)).pack(anchor="w", padx=8, pady=(0,4))
+        # Auto-refresh tree when city/speed changes
+        for sv in (self._spy_city_x, self._spy_city_y, self._spy_march_speed):
+            sv.trace_add("write", lambda *_: self.after(50, self._spy_refresh_tree))
 
         # ── Nút chạy ──
         run_sec = self._sec(lf, "Điều khiển")
@@ -3287,6 +3326,17 @@ class GUI(tk.Tk):
     def _spy_refresh_tree(self):
         tree = self._spy_tree
         tree.delete(*tree.get_children())
+        # Resolve Main City coords and march speed once
+        try:
+            _cx = int(self._spy_city_x.get())
+            _cy = int(self._spy_city_y.get())
+            _city_valid = True
+        except (ValueError, AttributeError):
+            _cx = _cy = 0; _city_valid = False
+        try:
+            _speed = float(self._spy_march_speed.get() or 30)
+        except (ValueError, AttributeError):
+            _speed = 30.0
         for i, coord in enumerate(self._spy_coords):
             x, y = coord[0], coord[1]
             note = coord[2] if len(coord) > 2 else ""
@@ -3297,8 +3347,22 @@ class GUI(tk.Tk):
             protection = res.get("protection", "")
             expiry = self._calc_truce_expiry(res.get("truce",""))
             prot_disp = f"{protection} → {expiry}" if expiry and "Còn" in protection else protection
+            # Calculate Manhattan distance march time from Main City
+            if _city_valid:
+                dist = abs(x - _cx) + abs(y - _cy)
+                secs = int(dist * _speed)
+                h, rem = divmod(secs, 3600)
+                m, s   = divmod(rem, 60)
+                if h > 0:
+                    march = f"{h}g{m}p{s}s"
+                elif m > 0:
+                    march = f"{m}p{s}s"
+                else:
+                    march = f"{s}s"
+            else:
+                march = ""
             tree.insert("", "end", iid=str(i),
-                        values=(i+1, x, y, note, alliance, lbl, prot_disp, "🗺"), tags=(tag,))
+                        values=(i+1, x, y, note, alliance, lbl, prot_disp, march, "🗺"), tags=(tag,))
 
     def _spy_add_coord(self):
         try:
@@ -3659,7 +3723,19 @@ class GUI(tk.Tk):
             protection = res.get("protection", "")
             expiry = self._calc_truce_expiry(res.get("truce",""))
             prot_disp = f"{protection} → {expiry}" if expiry and "Còn" in protection else protection
-            self._spy_tree.item(str(idx), values=(idx+1, x, y, note, alliance, lbl, prot_disp, "🗺"), tags=(tag,))
+            # Compute march time from Main City
+            try:
+                _cx = int(self._spy_city_x.get())
+                _cy = int(self._spy_city_y.get())
+                _speed = float(self._spy_march_speed.get() or 30)
+                dist = abs(x - _cx) + abs(y - _cy)
+                secs = int(dist * _speed)
+                h, rem = divmod(secs, 3600)
+                m, s   = divmod(rem, 60)
+                march = f"{h}g{m}p{s}s" if h > 0 else (f"{m}p{s}s" if m > 0 else f"{s}s")
+            except (ValueError, AttributeError):
+                march = ""
+            self._spy_tree.item(str(idx), values=(idx+1, x, y, note, alliance, lbl, prot_disp, march, "🗺"), tags=(tag,))
         except Exception: pass
 
     # ────────────────────────────────────────────────────────
@@ -4798,6 +4874,7 @@ class GUI(tk.Tk):
                              insertbackground=C["text"], relief="flat",
                              font=("Segoe UI", 9))
         self.e_gx.pack(side="left", padx=2)
+        self.e_gx.bind("<Return>", lambda e: self._add_coord())
 
         tk.Label(inp, text="Y:", bg=C["panel"], fg=C["text"],
                  font=("Segoe UI", 9)).pack(side="left", padx=(6,0))
@@ -4805,6 +4882,7 @@ class GUI(tk.Tk):
                              insertbackground=C["text"], relief="flat",
                              font=("Segoe UI", 9))
         self.e_gy.pack(side="left", padx=2)
+        self.e_gy.bind("<Return>", lambda e: self._add_coord())
 
         tk.Label(inp, text="Nhan:", bg=C["panel"], fg=C["text"],
                  font=("Segoe UI", 9)).pack(side="left", padx=(6,0))
@@ -5635,7 +5713,9 @@ class GUI(tk.Tk):
         # Gán label: profile + device serial
         profile = self._current_profile or "default"
         serial = self.cfg.device_serial
-        self.tg_bot.device_label = f"{profile} @ {serial}"
+        label = f"{profile} @ {serial}"
+        self.tg_bot.device_label    = label
+        self.tg_bot.instance_label  = label
         self.tg_bot.start()
 
     def _telegram_stop(self):
@@ -5776,6 +5856,65 @@ class GUI(tk.Tk):
             except Exception:
                 self.tg_bot.notify_error(group_name, msg)
         threading.Thread(target=_send, daemon=True).start()
+
+    def _tg_list_devices(self) -> list:
+        """Trả về danh sách thiết bị ADB đang kết nối."""
+        try:
+            connected = self.bot.adb.list_devices()
+            active = self.bot.adb.device or self.cfg.device_serial
+            return [{"serial": s, "active": s == active} for s in connected]
+        except Exception:
+            return []
+
+    def _tg_device_status(self, serial: str) -> str:
+        """Trả về chuỗi trạng thái của thiết bị được chọn từ Telegram."""
+        active = self.bot.adb.device or self.cfg.device_serial
+        profile = self._current_profile or "default"
+
+        if serial != active:
+            return (
+                f"📱 <b>{serial}</b>\n"
+                f"⚠️ Thiết bị đang kết nối nhưng <b>không</b> được bot này điều khiển.\n"
+                f"(Bot đang điều khiển: <code>{active}</code>)"
+            )
+
+        adb_ok  = "✅ Kết nối" if self.bot.adb.ok else "❌ Mất kết nối"
+        lines = [
+            f"📱 <b>{serial}</b>  {adb_ok}",
+            f"👤 Profile: <b>{profile}</b>",
+            "",
+        ]
+
+        # Bot tấn công chính
+        bot_running = getattr(self.bot, "running", False)
+        lines.append(f"⚔️ Bot tấn công: {'🟢 Đang chạy' if bot_running else '⚫ Dừng'}")
+
+        # Wave groups
+        if self.wave_groups:
+            lines.append("")
+            lines.append("🌊 <b>Wave groups:</b>")
+            for g in self.wave_groups:
+                eng = next((e for e in self._wave_engines if e.group is g), None)
+                status = eng.status if eng else "idle"
+                done  = sum(1 for p in g.points if p.get("status") == "done")
+                total = len(g.points)
+                icon  = "🟢" if status not in ("idle", "done", "error") else (
+                        "✅" if status == "done" else ("❌" if status == "error" else "⚫"))
+                lines.append(f"  {icon} {g.name}: {status} ({done}/{total})")
+        else:
+            lines.append("🌊 Chưa có nhóm wave")
+
+        # Spy engine
+        spy_running = getattr(self, "_spy_running", False)
+        lines.append(f"🕵️ Do thám: {'🟢 Đang chạy' if spy_running else '⚫ Dừng'}")
+
+        # Scout engine
+        scout_running = getattr(self, "_scout_engine", None) is not None and \
+                        getattr(self._scout_engine, "_thread", None) is not None and \
+                        getattr(self._scout_engine._thread, "is_alive", lambda: False)()
+        lines.append(f"🗺️ Dò bản đồ: {'🟢 Đang chạy' if scout_running else '⚫ Dừng'}")
+
+        return "\n".join(lines)
 
     def _save_profile(self):
         name = self._profile_var.get().strip()

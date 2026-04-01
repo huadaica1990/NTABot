@@ -1,24 +1,24 @@
 {
   "adb_path": "E:\\LDPlayer\\LDPlayer9\\adb.exe",
-  "device_serial": "emulator-5554",
+  "device_serial": "emulator-5558",
   "screen_w": 720,
   "screen_h": 1280,
   "tap_delay": 0.4,
   "troop_names": [
-    "auto2",
     "digdef2",
+    "auto2",
     "auto3",
     "auto4",
     "auto5",
     "auto6"
   ],
   "max_troops": 5,
-  "cooldown_sec": 120,
-  "lv2_cooldown_sec": 180,
-  "lv3_cooldown_sec": 340,
-  "lv4_cooldown_sec": 640,
+  "cooldown_sec": 180,
+  "lv2_cooldown_sec": 300,
+  "lv3_cooldown_sec": 320,
+  "lv4_cooldown_sec": 540,
   "popup_timeout": 10.0,
-  "game_start": "2026-03-05 09:10:00",
+  "game_start": "2026-04-01 09:10:00",
   "troop_timeout": 8.0,
   "done_timeout": 120.0,
   "debug_mode": false,
@@ -34,9 +34,9 @@
   "xem_x": 630,
   "xem_y": 1002,
   "nav_wait": 1.5,
-  "heal_every": 1000,
-  "heal_x": 450,
-  "heal_y": 209,
+  "heal_every": 15,
+  "heal_x": 468,
+  "heal_y": 146,
   "heal_step": 0,
   "army_health_enabled": false,
   "health_warn_avg": 0.55,
@@ -44,31 +44,445 @@
   "health_critical_ratio": 0.25,
   "health_force_heal_critical_units": 2,
   "anthropic_api_key": "",
-  "telegram_enabled": false,
-  "telegram_token": "",
-  "telegram_chat_id": "",
-  "_points": [],
-  "_build_tasks": [
+  "telegram_enabled": true,
+  "telegram_token": "8767277368:AAFO2Sto4tzk9AT7a_yvWyNq3oFq7N2IG_8",
+  "telegram_chat_id": "1174865156",
+  "_points": [
     {
-      "name": "Nha chinh",
-      "tap_x": 342,
-      "tap_y": 490,
-      "enabled": true,
-      "build_done": 0.0,
-      "level": 1,
-      "target_lv": 20
+      "idx": 1,
+      "game_x": 467,
+      "game_y": 148,
+      "label": "Diem 1",
+      "status": "waiting"
     },
     {
-      "name": "Nha ren",
-      "tap_x": 234,
-      "tap_y": 704,
-      "enabled": true,
-      "build_done": 0.0,
-      "level": 1,
-      "target_lv": 20
+      "idx": 2,
+      "game_x": 466,
+      "game_y": 148,
+      "label": "Diem 2",
+      "status": "waiting"
+    },
+    {
+      "idx": 3,
+      "game_x": 465,
+      "game_y": 148,
+      "label": "Diem 3",
+      "status": "waiting"
+    },
+    {
+      "idx": 4,
+      "game_x": 465,
+      "game_y": 149,
+      "label": "Diem 4",
+      "status": "waiting"
+    },
+    {
+      "idx": 5,
+      "game_x": 465,
+      "game_y": 150,
+      "label": "Diem 5",
+      "status": "waiting"
+    },
+    {
+      "idx": 6,
+      "game_x": 465,
+      "game_y": 151,
+      "label": "Diem 6",
+      "status": "waiting"
+    },
+    {
+      "idx": 7,
+      "game_x": 465,
+      "game_y": 152,
+      "label": "Diem 7",
+      "status": "waiting"
+    },
+    {
+      "idx": 8,
+      "game_x": 465,
+      "game_y": 153,
+      "label": "Diem 8",
+      "status": "waiting"
+    },
+    {
+      "idx": 9,
+      "game_x": 465,
+      "game_y": 154,
+      "label": "Diem 9",
+      "status": "waiting"
+    },
+    {
+      "idx": 10,
+      "game_x": 464,
+      "game_y": 154,
+      "label": "Diem 10",
+      "status": "waiting"
+    },
+    {
+      "idx": 11,
+      "game_x": 463,
+      "game_y": 154,
+      "label": "Diem 11",
+      "status": "waiting"
+    },
+    {
+      "idx": 12,
+      "game_x": 462,
+      "game_y": 154,
+      "label": "Diem 12",
+      "status": "waiting"
+    },
+    {
+      "idx": 13,
+      "game_x": 461,
+      "game_y": 154,
+      "label": "Diem 13",
+      "status": "waiting"
+    },
+    {
+      "idx": 14,
+      "game_x": 460,
+      "game_y": 154,
+      "label": "Diem 14",
+      "status": "waiting"
+    },
+    {
+      "idx": 15,
+      "game_x": 459,
+      "game_y": 154,
+      "label": "Diem 15",
+      "status": "waiting"
+    },
+    {
+      "idx": 16,
+      "game_x": 458,
+      "game_y": 154,
+      "label": "Diem 16",
+      "status": "waiting"
+    },
+    {
+      "idx": 17,
+      "game_x": 457,
+      "game_y": 154,
+      "label": "Diem 17",
+      "status": "waiting"
+    },
+    {
+      "idx": 18,
+      "game_x": 456,
+      "game_y": 154,
+      "label": "Diem 18",
+      "status": "waiting"
+    },
+    {
+      "idx": 19,
+      "game_x": 455,
+      "game_y": 154,
+      "label": "Diem 19",
+      "status": "waiting"
+    },
+    {
+      "idx": 20,
+      "game_x": 455,
+      "game_y": 153,
+      "label": "Diem 20",
+      "status": "waiting"
+    },
+    {
+      "idx": 21,
+      "game_x": 455,
+      "game_y": 152,
+      "label": "Diem 21",
+      "status": "waiting"
+    },
+    {
+      "idx": 22,
+      "game_x": 454,
+      "game_y": 152,
+      "label": "Diem 22",
+      "status": "waiting"
+    },
+    {
+      "idx": 23,
+      "game_x": 453,
+      "game_y": 152,
+      "label": "Diem 23",
+      "status": "waiting"
+    },
+    {
+      "idx": 24,
+      "game_x": 452,
+      "game_y": 152,
+      "label": "Diem 24",
+      "status": "waiting"
+    },
+    {
+      "idx": 25,
+      "game_x": 451,
+      "game_y": 152,
+      "label": "Diem 25",
+      "status": "waiting"
+    },
+    {
+      "idx": 26,
+      "game_x": 450,
+      "game_y": 152,
+      "label": "Diem 26",
+      "status": "waiting"
     }
   ],
-  "_wave_groups": [],
+  "_build_tasks": [
+    {
+      "name": "Nhà chính",
+      "tap_x": 342,
+      "tap_y": 490,
+      "level": 13,
+      "target_lv": 15,
+      "enabled": true,
+      "build_done": 1775054920.2345693
+    },
+    {
+      "name": "Nhà rèn",
+      "tap_x": 234,
+      "tap_y": 704,
+      "level": 11,
+      "target_lv": 14,
+      "enabled": true,
+      "build_done": 1775024641.0594187
+    },
+    {
+      "name": "Nhà lính",
+      "tap_x": 342,
+      "tap_y": 704,
+      "level": 10,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775041468.192828
+    },
+    {
+      "name": "Nhà tướng",
+      "tap_x": 450,
+      "tap_y": 704,
+      "level": 10,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775054090.8946671
+    },
+    {
+      "name": "Kho",
+      "tap_x": 450,
+      "tap_y": 576,
+      "level": 5,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775043804.9176207
+    },
+    {
+      "name": "Kho lúa",
+      "tap_x": 450,
+      "tap_y": 533,
+      "level": 5,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775046773.684505
+    },
+    {
+      "name": "Nhà thương",
+      "tap_x": 306,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Chợ",
+      "tap_x": 234,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 5,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Nhà level",
+      "tap_x": 414,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đại sứ quán",
+      "tap_x": 234,
+      "tap_y": 533,
+      "level": 2,
+      "target_lv": 15,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đất",
+      "tap_x": 306,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 15,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Trụ",
+      "tap_x": 378,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Tường thành",
+      "tap_x": 522,
+      "tap_y": 490,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    }
+  ],
+  "_wave_groups": [
+    {
+      "name": "Nhóm 1",
+      "troop_names": [
+        "digdef2",
+        "auto3",
+        "auto5"
+      ],
+      "points": [
+        {
+          "x": 473,
+          "y": 149,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 472,
+          "y": 149,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 471,
+          "y": 149,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 470,
+          "y": 149,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 470,
+          "y": 148,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 469,
+          "y": 148,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 468,
+          "y": 148,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 468,
+          "y": 147,
+          "label": "pt11"
+        },
+        {
+          "x": 468,
+          "y": 146,
+          "label": "pt12"
+        },
+        {
+          "x": 468,
+          "y": 145,
+          "label": "pt13"
+        },
+        {
+          "x": 468,
+          "y": 144,
+          "label": "pt14"
+        },
+        {
+          "x": 468,
+          "y": 143,
+          "label": "pt15"
+        }
+      ],
+      "enabled": true,
+      "heal_every": 0,
+      "heal_step": 0,
+      "heal_x": 500,
+      "heal_y": 300,
+      "heal_on_done": false,
+      "cooldown_sec": 180,
+      "lv2_cooldown_sec": 280,
+      "lv3_cooldown_sec": 0,
+      "lv4_cooldown_sec": 0
+    },
+    {
+      "name": "Nhóm 2",
+      "troop_names": [
+        "digdef3",
+        "auto4",
+        "auto2"
+      ],
+      "points": [
+        {
+          "x": 468,
+          "y": 137,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 468,
+          "y": 138,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 469,
+          "y": 138,
+          "label": "pt3",
+          "status": "done"
+        },
+        {
+          "x": 469,
+          "y": 139,
+          "label": "lv2",
+          "status": "going"
+        }
+      ],
+      "enabled": true,
+      "heal_every": 0,
+      "heal_step": 0,
+      "heal_x": 500,
+      "heal_y": 300,
+      "heal_on_done": false,
+      "cooldown_sec": 180,
+      "lv2_cooldown_sec": 280,
+      "lv3_cooldown_sec": 0,
+      "lv4_cooldown_sec": 0
+    }
+  ],
   "_scout_cfg": {
     "ox": "574",
     "oy": "310",

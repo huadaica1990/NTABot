@@ -5,17 +5,17 @@
   "screen_h": 1280,
   "tap_delay": 0.4,
   "troop_names": [
-    "auto2",
     "digdef2",
+    "auto2",
     "auto3",
     "auto4",
     "auto5",
     "auto6"
   ],
   "max_troops": 5,
-  "cooldown_sec": 120,
-  "lv2_cooldown_sec": 180,
-  "lv3_cooldown_sec": 340,
+  "cooldown_sec": 220,
+  "lv2_cooldown_sec": 300,
+  "lv3_cooldown_sec": 440,
   "lv4_cooldown_sec": 640,
   "popup_timeout": 10.0,
   "game_start": "2026-03-05 09:10:00",
@@ -34,9 +34,9 @@
   "xem_x": 630,
   "xem_y": 1002,
   "nav_wait": 1.5,
-  "heal_every": 1000,
-  "heal_x": 450,
-  "heal_y": 209,
+  "heal_every": 0,
+  "heal_x": 350,
+  "heal_y": 161,
   "heal_step": 0,
   "army_health_enabled": false,
   "health_warn_avg": 0.55,
@@ -49,73 +49,164 @@
   "telegram_chat_id": "1174865156",
   "_points": [
     {
-      "idx": 1,
-      "game_x": 345,
-      "game_y": 164,
-      "label": "lv2",
-      "status": "done"
-    },
-    {
-      "idx": 2,
-      "game_x": 345,
-      "game_y": 165,
-      "label": "lv2",
-      "status": "done"
-    },
-    {
-      "idx": 3,
-      "game_x": 345,
-      "game_y": 166,
+      "idx": 0,
+      "game_x": 352,
+      "game_y": 178,
       "label": "lv1",
       "status": "done"
     },
     {
+      "idx": 1,
+      "game_x": 353,
+      "game_y": 178,
+      "label": "lv1",
+      "status": "process"
+    },
+    {
+      "idx": 2,
+      "game_x": 354,
+      "game_y": 178,
+      "label": "Diem 8",
+      "status": "waiting"
+    },
+    {
       "idx": 4,
-      "game_x": 345,
-      "game_y": 167,
+      "game_x": 351,
+      "game_y": 160,
       "label": "Diem 4",
       "status": "waiting"
     },
     {
       "idx": 5,
-      "game_x": 345,
-      "game_y": 168,
+      "game_x": 352,
+      "game_y": 160,
       "label": "Diem 5",
       "status": "waiting"
     },
     {
       "idx": 6,
-      "game_x": 345,
-      "game_y": 169,
+      "game_x": 353,
+      "game_y": 160,
       "label": "Diem 6",
       "status": "waiting"
     },
     {
       "idx": 7,
-      "game_x": 345,
-      "game_y": 170,
+      "game_x": 354,
+      "game_y": 160,
       "label": "Diem 7",
       "status": "waiting"
     },
     {
       "idx": 8,
-      "game_x": 345,
-      "game_y": 171,
+      "game_x": 355,
+      "game_y": 160,
       "label": "Diem 8",
       "status": "waiting"
     },
     {
       "idx": 9,
-      "game_x": 345,
-      "game_y": 172,
+      "game_x": 356,
+      "game_y": 160,
       "label": "Diem 9",
       "status": "waiting"
     },
     {
       "idx": 10,
-      "game_x": 345,
-      "game_y": 173,
+      "game_x": 357,
+      "game_y": 160,
       "label": "Diem 10",
+      "status": "waiting"
+    },
+    {
+      "idx": 11,
+      "game_x": 358,
+      "game_y": 160,
+      "label": "Diem 11",
+      "status": "waiting"
+    },
+    {
+      "idx": 12,
+      "game_x": 359,
+      "game_y": 160,
+      "label": "Diem 12",
+      "status": "waiting"
+    },
+    {
+      "idx": 13,
+      "game_x": 359,
+      "game_y": 161,
+      "label": "Diem 13",
+      "status": "waiting"
+    },
+    {
+      "idx": 14,
+      "game_x": 359,
+      "game_y": 162,
+      "label": "Diem 14",
+      "status": "waiting"
+    },
+    {
+      "idx": 15,
+      "game_x": 360,
+      "game_y": 162,
+      "label": "Diem 15",
+      "status": "waiting"
+    },
+    {
+      "idx": 16,
+      "game_x": 361,
+      "game_y": 162,
+      "label": "Diem 16",
+      "status": "waiting"
+    },
+    {
+      "idx": 17,
+      "game_x": 362,
+      "game_y": 162,
+      "label": "Diem 17",
+      "status": "waiting"
+    },
+    {
+      "idx": 18,
+      "game_x": 362,
+      "game_y": 163,
+      "label": "Diem 18",
+      "status": "waiting"
+    },
+    {
+      "idx": 19,
+      "game_x": 363,
+      "game_y": 163,
+      "label": "Diem 19",
+      "status": "waiting"
+    },
+    {
+      "idx": 20,
+      "game_x": 364,
+      "game_y": 163,
+      "label": "Diem 20",
+      "status": "waiting"
+    },
+    {
+      "idx": 21,
+      "game_x": 365,
+      "game_y": 163,
+      "label": "Diem 21",
+      "status": "waiting"
+    },
+    {
+      "idx": 22,
+      "game_x": 366,
+      "game_y": 163,
+      "label": "Diem 22",
+      "status": "waiting"
+    },
+    {
+      "idx": 23,
+      "game_x": 367,
+      "game_y": 163,
+      "label": "Diem 23",
       "status": "waiting"
     }
   ],
@@ -124,26 +215,26 @@
       "name": "Nhà chính",
       "tap_x": 342,
       "tap_y": 490,
-      "level": 6,
-      "target_lv": 10,
+      "level": 13,
+      "target_lv": 15,
       "enabled": true,
-      "build_done": 1775012821.7478316
+      "build_done": 1775066639.4676917
     },
     {
       "name": "Nhà rèn",
       "tap_x": 234,
       "tap_y": 704,
-      "level": 3,
-      "target_lv": 10,
+      "level": 12,
+      "target_lv": 14,
       "enabled": true,
-      "build_done": 1775012472.2618787
+      "build_done": 1775065800.104057
     },
     {
       "name": "Nhà lính",
       "tap_x": 342,
       "tap_y": 704,
-      "level": 2,
-      "target_lv": 7,
+      "level": 10,
+      "target_lv": 10,
       "enabled": true,
       "build_done": 0
     },
@@ -151,17 +242,17 @@
       "name": "Nhà tướng",
       "tap_x": 450,
       "tap_y": 704,
-      "level": 1,
+      "level": 10,
       "target_lv": 10,
-      "enabled": false,
-      "build_done": 0
+      "enabled": true,
+      "build_done": 1775053975.5029356
     },
     {
       "name": "Kho",
       "tap_x": 450,
       "tap_y": 576,
-      "level": 3,
-      "target_lv": 5,
+      "level": 5,
+      "target_lv": 10,
       "enabled": true,
       "build_done": 0
     },
@@ -169,8 +260,8 @@
       "name": "Kho lúa",
       "tap_x": 450,
       "tap_y": 533,
-      "level": 3,
-      "target_lv": 5,
+      "level": 5,
+      "target_lv": 10,
       "enabled": true,
       "build_done": 0
     },

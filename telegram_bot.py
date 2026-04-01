@@ -31,16 +31,16 @@ from urllib.error import URLError
 from urllib.parse import urlencode
 
 
+class _ConflictError(Exception):
+    """Raised when Telegram returns 409 Conflict (another instance is polling)."""
+
+
 # Inline keyboard presets: key → (label, x, y)
 TAP_PRESETS = {
-    "tap_center":     ("👆 Giữa",       270, 480),
-    "tap_back":       ("🔙 Back",        342, 1216),
-    "tap_exit_city":  ("🚪 Thoát thành", 54,  1216),
-    "tap_all_armies": ("🪖 All Armies",  666, 1216),
-    "tap_capture":    ("⚔ Chiếm",        486, 704),
-    "tap_march":      ("🏇 March",       486, 746),
-    "tap_map":        ("🗺 Bản đồ",      558, 1216),
-    "tap_spin":       ("🎰 Quay",        414, 1216),
+    "tap_center":      ("👆 Giữa",          342, 661),
+    "tap_close_popup": ("❌ Đóng popup",     342, 1216),
+    "tap_enter_city":  ("🏰 Vào thành",      54,  1216),
+    "tap_exit_city":   ("🚪 Thoát thành",    54,  1216),
 }
 
 
@@ -62,6 +62,15 @@ class TelegramBot:
         # ADB callback: on_tap(x, y) -> png_bytes hoac None
         # x=None, y=None → chỉ chụp screenshot, không tap
         self.on_tap: Optional[Callable] = None
+
+        # Multi-device callbacks
+        # on_list_devices() -> list[{"serial": str, "active": bool}]
+        self.on_list_devices: Optional[Callable] = None
+        # on_device_status(serial) -> str (formatted status text)
+        self.on_device_status: Optional[Callable] = None
+
+        self._selected_device: Optional[str] = None  # device selected via Telegram
+        self.instance_label: str = ""  # e.g. "profile @ serial" — shown in startup message
 
     @property
     def api(self):
@@ -96,6 +105,8 @@ class TelegramBot:
             with urlopen(req, timeout=15) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except URLError as e:
+            if "409" in str(e):
+                raise _ConflictError() from e
             self.log(f"[Telegram] ⚠️ API lỗi: {e}")
             return None
         except Exception as e:
@@ -148,9 +159,27 @@ class TelegramBot:
                 row = []
         if row:
             rows.append(row)
-        # Thêm nút Screenshot
         rows.append([{"text": "📷 Screenshot", "callback_data": "cb_screenshot"}])
         return {"inline_keyboard": rows}
+
+    def _build_device_keyboard(self, devices: list) -> dict:
+        """Inline keyboard: one button per ADB device."""
+        rows = []
+        for d in devices:
+            serial = d["serial"]
+            mark = " ✅" if d.get("active") else ""
+            rows.append([{"text": f"📱 {serial}{mark}",
+                          "callback_data": f"cb_dev:{serial}"}])
+        rows.append([{"text": "🔄 Làm mới", "callback_data": "cb_devices"}])
+        return {"inline_keyboard": rows}
+
+    def _build_device_cmd_keyboard(self) -> dict:
+        """Tap keyboard + back-to-devices button at top."""
+        kb = self._build_tap_keyboard()
+        kb["inline_keyboard"].insert(0, [
+            {"text": "📋 ← Danh sách thiết bị", "callback_data": "cb_devices"}
+        ])
+        return kb
 
     def _poll(self):
         """Long-polling lay updates tu Telegram."""
@@ -194,6 +223,8 @@ class TelegramBot:
         if cmd == "/help":
             reply = (
                 "🤖 <b>NTA Bot — Lệnh Telegram</b>\n\n"
+                "📱 <b>Thiết bị:</b>\n"
+                "/devices — Danh sách thiết bị ADB\n\n"
                 "📋 <b>Thông tin:</b>\n"
                 "/status — Trạng thái tất cả\n"
                 "/screenshot — Chụp màn hình\n\n"
@@ -208,6 +239,10 @@ class TelegramBot:
                 "/help — Hiện trợ giúp"
             )
             self.send_message(reply)
+            return
+
+        if cmd == "/devices":
+            self._send_device_list()
             return
 
         if cmd == "/tap" and not args:
@@ -228,6 +263,22 @@ class TelegramBot:
         else:
             self.send_message("⚠️ Bot chưa sẵn sàng, thử lại sau.")
 
+    def _send_device_list(self):
+        """Fetch and send the ADB device list as an inline keyboard."""
+        if not self.on_list_devices:
+            self.send_message("⚠️ Chức năng liệt kê thiết bị chưa được cấu hình.")
+            return
+        devices = self.on_list_devices()
+        if not devices:
+            self.send_message("⚠️ Không tìm thấy thiết bị ADB nào đang kết nối.")
+            return
+        count = len(devices)
+        self.send_message(
+            f"📱 <b>{count} thiết bị ADB đang kết nối:</b>\n"
+            "(✅ = thiết bị đang được điều khiển)",
+            reply_markup=self._build_device_keyboard(devices)
+        )
+
     def _handle_callback(self, cb: dict):
         """Xu ly callback query tu inline keyboard."""
         cb_id = cb.get("id", "")
@@ -236,6 +287,22 @@ class TelegramBot:
 
         if from_chat != self.chat_id:
             self.answer_callback(cb_id, "⛔ Không có quyền")
+            return
+
+        # Device list (refresh or back)
+        if data == "cb_devices":
+            self.answer_callback(cb_id, "📱 Đang tải danh sách...")
+            self._send_device_list()
+            return
+
+        # Device selected
+        if data.startswith("cb_dev:"):
+            serial = data[7:]
+            self._selected_device = serial
+            self.answer_callback(cb_id, f"📱 {serial}")
+            if self.on_device_status:
+                status = self.on_device_status(serial)
+                self.send_message(status, reply_markup=self._build_device_cmd_keyboard())
             return
 
         # Screenshot button
@@ -272,14 +339,27 @@ class TelegramBot:
     def _run(self):
         """Main polling loop."""
         self.log("[Telegram] ▶ Bắt đầu polling...")
-        self.send_message("🟢 NTA Bot đã kết nối!\nGõ /tap để mở bàn phím điều khiển")
+        label = f" — {self.instance_label}" if self.instance_label else ""
+        self.send_message(f"🟢 NTA Bot đã kết nối{label}!\nGõ /tap để mở bàn phím điều khiển")
+        _conflict_backoff = 0   # seconds to wait after 409
         while not self._stop.is_set():
+            if _conflict_backoff > 0:
+                # Another instance is polling — wait, then retry
+                time.sleep(min(_conflict_backoff, 60))
+                _conflict_backoff = 0
             try:
                 updates = self._poll()
                 for u in updates:
                     if self._stop.is_set():
                         break
                     self._handle_update(u)
+            except _ConflictError:
+                _conflict_backoff = 30
+                self.log(
+                    "[Telegram] ⚠️ 409 Conflict — một phiên khác đang dùng cùng token. "
+                    "Mỗi instance cần một bot token riêng. "
+                    "Thử lại sau 30s..."
+                )
             except Exception as e:
                 self.log(f"[Telegram] ⚠️ Poll lỗi: {e}")
                 time.sleep(5)

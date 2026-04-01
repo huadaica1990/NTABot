@@ -37,6 +37,58 @@
       ""
     ]
   ],
-  "results": {},
-  "alliances": ""
+  "results": {
+    "474,120": {
+      "label": "enemy_city",
+      "name": "wy  VY  8 868 8",
+      "truce": "115:15:09",
+      "protection": "🛡 Còn bảo vệ 115:15:09",
+      "raw_title": "[ | mh, 1, r\nwy ; VY @ 8 86:8 8\n, ri a\nmh, Mh, i ; a /\n1) w Kanekiken w\n1 (474,120) Wey ion ra)\n' fw o | 1+. — [e}\n| & Truce 115:15:09 OL.\n“a 7 ao bia lc g\nrd\n> Ld nc) =) as\n; i mh, zis a. rt 7\nQo * Wart rm One",
+      "raw_btn": "S< Conquer\n62 Info\n(474120)"
+    },
+    "499,144": {
+      "label": "enemy_city",
+      "name": "Chu Thién Ter",
+      "truce": "115:14:50",
+      "protection": "🛡 Còn bảo vệ 115:14:50",
+      "raw_title": "- 7 .\nChu Thién Ter\n. & (499,144) wy |]\na |\nB@200/200 Lv.1\n@ Truce 115:14:50 ee\n\"= - | Hl\n=. fone |",
+      "raw_btn": "build 1 ‘Drill Ground’ (SR\nS< Conquer\n62 Info\non"
+    },
+    "510,125": {
+      "label": "enemy_city",
+      "name": "ros LAY 7",
+      "truce": "115:14:30",
+      "protection": "🛡 Còn bảo vệ 115:14:30",
+      "raw_title": "ros LAY 7\n\n7 ri, mh, ve, ; :\n\nY iH\nJohnwu WU Y\n\nfr (510,125) wy (P) 7\n= ) y\n200/200 od ro bes\na [ri - St Tt.) C2 ee eet J\n() Truce 115:14:30 oy. 5% Conquer |\n\n‘4 0 Joo U, .",
+      "raw_btn": "Build 1 ‘Drill Ground’ (i\nS< Conquer\n62 Info\na sus\nC2 “(510 05) ay"
+    },
+    "458,131": {
+      "label": "enemy_city",
+      "name": "Ziad",
+      "truce": "115:14:11",
+      "protection": "🛡 Còn bảo vệ 115:14:11",
+      "raw_title": "= tee\"\nZiad\nPa ; mr (458,131) wy] [D>].\n[Ti Mindfulness TOT\n() Truce 115:14:11 'o.! .\nol im I& .\n= 1 | |",
+      "raw_btn": "Build 1 ‘Drill Ground’ (i\nS< Conquer\n62 Info"
+    },
+    "482,157": {
+      "label": "enemy_city",
+      "name": "a bie",
+      "truce": "115:13:51",
+      "protection": "🛡 Còn bảo vệ 115:13:51",
+      "raw_title": "a = —\nre 1\na bie\nme om oy s =\nShark killer\nfr (482,157) ey\n-| B 200/200 pd oe\n[M7 Mindfulness DLE.\n@) Truce 115:13:51 ' roo, |\nPm, | Mm",
+      "raw_btn": "Build 1 ‘Drill Ground’ EE\nS< Conquer\n62 Info"
+    },
+    "500,164": {
+      "label": "enemy_city",
+      "name": "ant me",
+      "truce": "115:13:32",
+      "protection": "🛡 Còn bảo vệ 115:13:32",
+      "raw_title": "ant me ;\n‘ — 4 ro. 4\nFn |\nos Pat fi\n‘ ’ |\nBatman\n“(PF QueenLy Li\n~| &) Truce 115:13:32 Uo. of\n- , ~&l m@ Ie\n\nAt .. ad rhe,",
+      "raw_btn": "Build 1 'Drill Ground’ fi\nS< Conquer\n62 Info\njo u : . .\n© (500,164)"
+    }
+  },
+  "alliances": "",
+  "city_x": "480",
+  "city_y": "139",
+  "march_speed": "30"
 }
