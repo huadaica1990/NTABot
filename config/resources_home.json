@@ -1,0 +1,1328 @@
+{
+  "Capital": [
+    {
+      "wood": 8657,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 8657,
+      "stone": 8657,
+      "done": false
+    },
+    {
+      "wood": 11487,
+      "stone": 11487,
+      "done": false
+    }
+  ],
+  "Smithy": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 4464,
+      "stone": 5457,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 10419,
+      "stone": 12734,
+      "done": false
+    }
+  ],
+  "Barrack": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1236,
+      "stone": 1012,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 7180,
+      "stone": 5874,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Hall of Heroes": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 112,
+      "stone": 1359,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Clinic": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 205,
+      "stone": 167,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1083,
+      "stone": 886,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1705,
+      "stone": 1395,
+      "done": false
+    },
+    {
+      "wood": 2160,
+      "stone": 1768,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Drill Ground": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 198,
+      "stone": 162,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 945,
+      "stone": 773,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1488,
+      "stone": 1217,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Barn": [
+    {
+      "wood": 116,
+      "stone": 95,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 980,
+      "stone": 801,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Warehouse": [
+    {
+      "wood": 95,
+      "stone": 116,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1282,
+      "stone": 1566,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Ting System": [
+    {
+      "wood": 187,
+      "stone": 153,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Frontier Garrison": [
+    {
+      "wood": 180,
+      "stone": 220,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Embassy": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 185,
+      "stone": 185,
+      "done": false
+    },
+    {
+      "wood": 221,
+      "stone": 221,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "Union Market": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 167,
+      "stone": 205,
+      "done": false
+    },
+    {
+      "wood": 206,
+      "stone": 252,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 1108,
+      "stone": 1355,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ],
+  "City Wall": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 180,
+      "stone": 220,
+      "done": false
+    },
+    {
+      "wood": 216,
+      "stone": 264,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": false
+    }
+  ]
+}

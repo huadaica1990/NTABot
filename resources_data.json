@@ -1,0 +1,1328 @@
+{
+  "Capital": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 178,
+      "stone": 178,
+      "done": true
+    },
+    {
+      "wood": 221,
+      "stone": 221,
+      "done": true
+    },
+    {
+      "wood": 272,
+      "stone": 272,
+      "done": true
+    },
+    {
+      "wood": 335,
+      "stone": 335,
+      "done": true
+    },
+    {
+      "wood": 411,
+      "stone": 411,
+      "done": true
+    },
+    {
+      "wood": 505,
+      "stone": 505,
+      "done": true
+    },
+    {
+      "wood": 622,
+      "stone": 622,
+      "done": true
+    },
+    {
+      "wood": 767,
+      "stone": 767,
+      "done": true
+    },
+    {
+      "wood": 951,
+      "stone": 951,
+      "done": true
+    },
+    {
+      "wood": 1482,
+      "stone": 1482,
+      "done": true
+    },
+    {
+      "wood": 1482,
+      "stone": 1482,
+      "done": true
+    },
+    {
+      "wood": 1866,
+      "stone": 1866,
+      "done": true
+    },
+    {
+      "wood": 2366,
+      "stone": 2366,
+      "done": true
+    },
+    {
+      "wood": 3021,
+      "stone": 3021,
+      "done": true
+    },
+    {
+      "wood": 3886,
+      "stone": 3886,
+      "done": true
+    },
+    {
+      "wood": 5036,
+      "stone": 5036,
+      "done": true
+    },
+    {
+      "wood": 6577,
+      "stone": 6577,
+      "done": true
+    },
+    {
+      "wood": 8657,
+      "stone": 8657,
+      "done": true
+    },
+    {
+      "wood": 11487,
+      "stone": 11487,
+      "done": true
+    }
+  ],
+  "Smithy": [
+    {
+      "wood": 128,
+      "stone": 157,
+      "done": true
+    },
+    {
+      "wood": 158,
+      "stone": 193,
+      "done": true
+    },
+    {
+      "wood": 193,
+      "stone": 235,
+      "done": true
+    },
+    {
+      "wood": 235,
+      "stone": 287,
+      "done": true
+    },
+    {
+      "wood": 287,
+      "stone": 350,
+      "done": true
+    },
+    {
+      "wood": 350,
+      "stone": 428,
+      "done": true
+    },
+    {
+      "wood": 429,
+      "stone": 524,
+      "done": true
+    },
+    {
+      "wood": 527,
+      "stone": 645,
+      "done": true
+    },
+    {
+      "wood": 652,
+      "stone": 796,
+      "done": true
+    },
+    {
+      "wood": 810,
+      "stone": 989,
+      "done": true
+    },
+    {
+      "wood": 1012,
+      "stone": 1236,
+      "done": true
+    },
+    {
+      "wood": 1272,
+      "stone": 1555,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 2055,
+      "stone": 2511,
+      "done": true
+    },
+    {
+      "wood": 2641,
+      "stone": 3227,
+      "done": true
+    },
+    {
+      "wood": 3420,
+      "stone": 4180,
+      "done": true
+    },
+    {
+      "wood": 4464,
+      "stone": 5457,
+      "done": true
+    },
+    {
+      "wood": 5874,
+      "stone": 7180,
+      "done": true
+    },
+    {
+      "wood": 7792,
+      "stone": 9523,
+      "done": true
+    },
+    {
+      "wood": 10419,
+      "stone": 12734,
+      "done": true
+    }
+  ],
+  "Barrack": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 193,
+      "stone": 193,
+      "done": true
+    },
+    {
+      "wood": 235,
+      "stone": 193,
+      "done": true
+    },
+    {
+      "wood": 287,
+      "stone": 235,
+      "done": true
+    },
+    {
+      "wood": 350,
+      "stone": 287,
+      "done": true
+    },
+    {
+      "wood": 428,
+      "stone": 350,
+      "done": true
+    },
+    {
+      "wood": 524,
+      "stone": 429,
+      "done": true
+    },
+    {
+      "wood": 645,
+      "stone": 527,
+      "done": true
+    },
+    {
+      "wood": 796,
+      "stone": 652,
+      "done": true
+    },
+    {
+      "wood": 989,
+      "stone": 810,
+      "done": true
+    },
+    {
+      "wood": 1236,
+      "stone": 1012,
+      "done": true
+    },
+    {
+      "wood": 1555,
+      "stone": 1272,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 2511,
+      "stone": 2055,
+      "done": true
+    },
+    {
+      "wood": 3227,
+      "stone": 2641,
+      "done": true
+    },
+    {
+      "wood": 4180,
+      "stone": 3420,
+      "done": true
+    },
+    {
+      "wood": 5457,
+      "stone": 4464,
+      "done": true
+    },
+    {
+      "wood": 7180,
+      "stone": 5874,
+      "done": true
+    },
+    {
+      "wood": 9523,
+      "stone": 7792,
+      "done": true
+    },
+    {
+      "wood": 12734,
+      "stone": 10419,
+      "done": true
+    }
+  ],
+  "Hall of Heroes": [
+    {
+      "wood": 153,
+      "stone": 187,
+      "done": true
+    },
+    {
+      "wood": 185,
+      "stone": 226,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 478,
+      "stone": 585,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 892,
+      "stone": 1090,
+      "done": true
+    },
+    {
+      "wood": 112,
+      "stone": 1359,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1764,
+      "stone": 2155,
+      "done": true
+    },
+    {
+      "wood": 2246,
+      "stone": 2746,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 3731,
+      "stone": 4560,
+      "done": true
+    },
+    {
+      "wood": 4866,
+      "stone": 5948,
+      "done": true
+    },
+    {
+      "wood": 6399,
+      "stone": 7821,
+      "done": true
+    },
+    {
+      "wood": 8483,
+      "stone": 10369,
+      "done": true
+    },
+    {
+      "wood": 11339,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Clinic": [
+    {
+      "wood": 165,
+      "stone": 135,
+      "done": true
+    },
+    {
+      "wood": 205,
+      "stone": 167,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 703,
+      "stone": 576,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1083,
+      "stone": 886,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1705,
+      "stone": 1395,
+      "done": true
+    },
+    {
+      "wood": 2160,
+      "stone": 1768,
+      "done": true
+    },
+    {
+      "wood": 2757,
+      "stone": 2256,
+      "done": true
+    },
+    {
+      "wood": 3545,
+      "stone": 2900,
+      "done": true
+    },
+    {
+      "wood": 4593,
+      "stone": 3758,
+      "done": true
+    },
+    {
+      "wood": 5997,
+      "stone": 4906,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Drill Ground": [
+    {
+      "wood": 154,
+      "stone": 126,
+      "done": true
+    },
+    {
+      "wood": 198,
+      "stone": 162,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 393,
+      "stone": 321,
+      "done": true
+    },
+    {
+      "wood": 489,
+      "stone": 400,
+      "done": true
+    },
+    {
+      "wood": 608,
+      "stone": 498,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 757,
+      "stone": 620,
+      "done": true
+    },
+    {
+      "wood": 945,
+      "stone": 773,
+      "done": true
+    },
+    {
+      "wood": 1183,
+      "stone": 968,
+      "done": true
+    },
+    {
+      "wood": 1488,
+      "stone": 1217,
+      "done": true
+    },
+    {
+      "wood": 1881,
+      "stone": 1539,
+      "done": true
+    },
+    {
+      "wood": 2393,
+      "stone": 1958,
+      "done": true
+    },
+    {
+      "wood": 3062,
+      "stone": 2506,
+      "done": true
+    },
+    {
+      "wood": 3947,
+      "stone": 3229,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Barn": [
+    {
+      "wood": 116,
+      "stone": 95,
+      "done": true
+    },
+    {
+      "wood": 144,
+      "stone": 118,
+      "done": true
+    },
+    {
+      "wood": 178,
+      "stone": 146,
+      "done": true
+    },
+    {
+      "wood": 219,
+      "stone": 180,
+      "done": true
+    },
+    {
+      "wood": 270,
+      "stone": 221,
+      "done": true
+    },
+    {
+      "wood": 332,
+      "stone": 272,
+      "done": true
+    },
+    {
+      "wood": 409,
+      "stone": 335,
+      "done": true
+    },
+    {
+      "wood": 505,
+      "stone": 414,
+      "done": true
+    },
+    {
+      "wood": 627,
+      "stone": 513,
+      "done": true
+    },
+    {
+      "wood": 782,
+      "stone": 639,
+      "done": true
+    },
+    {
+      "wood": 980,
+      "stone": 801,
+      "done": true
+    },
+    {
+      "wood": 1235,
+      "stone": 1010,
+      "done": true
+    },
+    {
+      "wood": 1566,
+      "stone": 1282,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Warehouse": [
+    {
+      "wood": 95,
+      "stone": 116,
+      "done": true
+    },
+    {
+      "wood": 118,
+      "stone": 144,
+      "done": true
+    },
+    {
+      "wood": 146,
+      "stone": 178,
+      "done": true
+    },
+    {
+      "wood": 180,
+      "stone": 219,
+      "done": true
+    },
+    {
+      "wood": 221,
+      "stone": 270,
+      "done": true
+    },
+    {
+      "wood": 272,
+      "stone": 332,
+      "done": true
+    },
+    {
+      "wood": 335,
+      "stone": 409,
+      "done": true
+    },
+    {
+      "wood": 414,
+      "stone": 505,
+      "done": true
+    },
+    {
+      "wood": 513,
+      "stone": 627,
+      "done": true
+    },
+    {
+      "wood": 639,
+      "stone": 782,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1010,
+      "stone": 1235,
+      "done": true
+    },
+    {
+      "wood": 1282,
+      "stone": 1566,
+      "done": true
+    },
+    {
+      "wood": 1637,
+      "stone": 2001,
+      "done": true
+    },
+    {
+      "wood": 2106,
+      "stone": 2575,
+      "done": true
+    },
+    {
+      "wood": 2731,
+      "stone": 3337,
+      "done": true
+    },
+    {
+      "wood": 3567,
+      "stone": 4360,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 8338,
+      "stone": 10190,
+      "done": true
+    }
+  ],
+  "Ting System": [
+    {
+      "wood": 187,
+      "stone": 153,
+      "done": true
+    },
+    {
+      "wood": 226,
+      "stone": 185,
+      "done": true
+    },
+    {
+      "wood": 272,
+      "stone": 222,
+      "done": true
+    },
+    {
+      "wood": 328,
+      "stone": 628,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 969,
+      "stone": 1185,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1705,
+      "stone": 1395,
+      "done": true
+    },
+    {
+      "wood": 2155,
+      "stone": 1764,
+      "done": true
+    },
+    {
+      "wood": 2746,
+      "stone": 2246,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 4560,
+      "stone": 3731,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Frontier Garrison": [
+    {
+      "wood": 180,
+      "stone": 220,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 254,
+      "stone": 311,
+      "done": true
+    },
+    {
+      "wood": 303,
+      "stone": 371,
+      "done": true
+    },
+    {
+      "wood": 363,
+      "stone": 444,
+      "done": true
+    },
+    {
+      "wood": 437,
+      "stone": 534,
+      "done": true
+    },
+    {
+      "wood": 528,
+      "stone": 646,
+      "done": true
+    },
+    {
+      "wood": 643,
+      "stone": 785,
+      "done": true
+    },
+    {
+      "wood": 787,
+      "stone": 961,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Embassy": [
+    {
+      "wood": 155,
+      "stone": 155,
+      "done": true
+    },
+    {
+      "wood": 185,
+      "stone": 185,
+      "done": true
+    },
+    {
+      "wood": 221,
+      "stone": 221,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 383,
+      "stone": 383,
+      "done": true
+    },
+    {
+      "wood": 463,
+      "stone": 463,
+      "done": true
+    },
+    {
+      "wood": 690,
+      "stone": 690,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 851,
+      "stone": 851,
+      "done": true
+    },
+    {
+      "wood": 1056,
+      "stone": 1056,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "Union Market": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 167,
+      "stone": 205,
+      "done": true
+    },
+    {
+      "wood": 206,
+      "stone": 252,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 380,
+      "stone": 465,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 1108,
+      "stone": 1355,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ],
+  "City Wall": [
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 180,
+      "stone": 220,
+      "done": true
+    },
+    {
+      "wood": 216,
+      "stone": 264,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 827,
+      "stone": 1011,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 2012,
+      "stone": 2459,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    },
+    {
+      "wood": 0,
+      "stone": 0,
+      "done": true
+    }
+  ]
+}

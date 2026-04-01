@@ -1,0 +1,274 @@
+{
+  "adb_path": "E:\\LDPlayer\\LDPlayer9\\adb.exe",
+  "device_serial": "emulator-5556",
+  "screen_w": 720,
+  "screen_h": 1280,
+  "tap_delay": 0.4,
+  "troop_names": [
+    "auto2",
+    "digdef2",
+    "auto3",
+    "auto4",
+    "auto5",
+    "auto6"
+  ],
+  "max_troops": 5,
+  "cooldown_sec": 220,
+  "lv2_cooldown_sec": 320,
+  "lv3_cooldown_sec": 300,
+  "lv4_cooldown_sec": 540,
+  "popup_timeout": 10.0,
+  "game_start": "2026-03-25 09:10:00",
+  "troop_timeout": 8.0,
+  "done_timeout": 120.0,
+  "debug_mode": false,
+  "ollama_enabled": false,
+  "ollama_url": "http://localhost:11434",
+  "ollama_model": "qwen2-vl:7b",
+  "nav_btn_x": 558,
+  "nav_btn_y": 1216,
+  "x_field_x": 378,
+  "x_field_y": 1002,
+  "y_field_x": 486,
+  "y_field_y": 1002,
+  "xem_x": 630,
+  "xem_y": 1002,
+  "nav_wait": 1.5,
+  "heal_every": 1000,
+  "heal_x": 450,
+  "heal_y": 209,
+  "heal_step": 0,
+  "army_health_enabled": false,
+  "health_warn_avg": 0.55,
+  "health_force_heal_avg": 0.3,
+  "health_critical_ratio": 0.25,
+  "health_force_heal_critical_units": 2,
+  "anthropic_api_key": "",
+  "telegram_enabled": true,
+  "telegram_token": "8767277368:AAFO2Sto4tzk9AT7a_yvWyNq3oFq7N2IG_8",
+  "telegram_chat_id": "1174865156",
+  "_points": [],
+  "_build_tasks": [
+    {
+      "name": "Nhà chính",
+      "tap_x": 342,
+      "tap_y": 490,
+      "level": 13,
+      "target_lv": 18,
+      "enabled": true,
+      "build_done": 1774991694.1631453
+    },
+    {
+      "name": "Nhà rèn",
+      "tap_x": 234,
+      "tap_y": 704,
+      "level": 12,
+      "target_lv": 14,
+      "enabled": true,
+      "build_done": 1775003785.6757457
+    },
+    {
+      "name": "Nhà tướng",
+      "tap_x": 450,
+      "tap_y": 704,
+      "level": 7,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775000916.1607845
+    },
+    {
+      "name": "Nhà lính",
+      "tap_x": 342,
+      "tap_y": 704,
+      "level": 10,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1774974168.9779267
+    },
+    {
+      "name": "Nhà thương",
+      "tap_x": 306,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Nhà level",
+      "tap_x": 414,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Kho",
+      "tap_x": 450,
+      "tap_y": 576,
+      "level": 10,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1774982993.606015
+    },
+    {
+      "name": "Kho lúa",
+      "tap_x": 450,
+      "tap_y": 533,
+      "level": 8,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1774951853.4127765
+    },
+    {
+      "name": "Chợ",
+      "tap_x": 234,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đại sứ quán",
+      "tap_x": 234,
+      "tap_y": 533,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đất",
+      "tap_x": 306,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Tường thành",
+      "tap_x": 522,
+      "tap_y": 490,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Trụ",
+      "tap_x": 378,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    }
+  ],
+  "_wave_groups": [
+    {
+      "name": "Nhóm 1",
+      "troop_names": [
+        "digdef2",
+        "auto2",
+        "auto3",
+        "auto4",
+        "auto5"
+      ],
+      "points": [
+        {
+          "x": 507,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 508,
+          "y": 64,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 509,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 510,
+          "y": 64,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 511,
+          "y": 64,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 512,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 513,
+          "y": 64,
+          "label": "pt7",
+          "status": "done"
+        },
+        {
+          "x": 514,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 515,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 516,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 517,
+          "y": 64,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 518,
+          "y": 64,
+          "label": "lv2",
+          "status": "process"
+        }
+      ],
+      "enabled": true,
+      "heal_every": 3,
+      "heal_step": 2,
+      "heal_x": 517,
+      "heal_y": 64,
+      "heal_on_done": false,
+      "cooldown_sec": -1,
+      "lv2_cooldown_sec": -1,
+      "lv3_cooldown_sec": -1,
+      "lv4_cooldown_sec": -1
+    }
+  ],
+  "_scout_cfg": {
+    "ox": "574",
+    "oy": "310",
+    "up": "5",
+    "down": "5",
+    "left": "5",
+    "right": "5"
+  }
+}

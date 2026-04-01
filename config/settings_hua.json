@@ -1,0 +1,467 @@
+{
+  "adb_path": "E:\\LDPlayer\\LDPlayer9\\adb.exe",
+  "device_serial": "emulator-5558",
+  "screen_w": 720,
+  "screen_h": 1280,
+  "tap_delay": 0.4,
+  "troop_names": [
+    "auto2",
+    "digdef2",
+    "auto3",
+    "auto4",
+    "auto5",
+    "auto6"
+  ],
+  "max_troops": 5,
+  "cooldown_sec": 140,
+  "lv2_cooldown_sec": 300,
+  "lv3_cooldown_sec": 320,
+  "lv4_cooldown_sec": 540,
+  "popup_timeout": 10.0,
+  "game_start": "2026-03-26 09:10:00",
+  "troop_timeout": 8.0,
+  "done_timeout": 120.0,
+  "debug_mode": false,
+  "ollama_enabled": false,
+  "ollama_url": "http://localhost:11434",
+  "ollama_model": "qwen2-vl:7b",
+  "nav_btn_x": 558,
+  "nav_btn_y": 1216,
+  "x_field_x": 378,
+  "x_field_y": 1002,
+  "y_field_x": 486,
+  "y_field_y": 1002,
+  "xem_x": 630,
+  "xem_y": 1002,
+  "nav_wait": 1.5,
+  "heal_every": 10,
+  "heal_x": 499,
+  "heal_y": 60,
+  "heal_step": 5,
+  "army_health_enabled": false,
+  "health_warn_avg": 0.55,
+  "health_force_heal_avg": 0.3,
+  "health_critical_ratio": 0.25,
+  "health_force_heal_critical_units": 2,
+  "anthropic_api_key": "",
+  "telegram_enabled": true,
+  "telegram_token": "8767277368:AAFO2Sto4tzk9AT7a_yvWyNq3oFq7N2IG_8",
+  "telegram_chat_id": "1174865156",
+  "_points": [
+    {
+      "idx": 1,
+      "game_x": 480,
+      "game_y": 134,
+      "label": "Diem 1",
+      "status": "done"
+    },
+    {
+      "idx": 2,
+      "game_x": 480,
+      "game_y": 133,
+      "label": "lv1",
+      "status": "done"
+    },
+    {
+      "idx": 3,
+      "game_x": 480,
+      "game_y": 132,
+      "label": "lv2",
+      "status": "done"
+    },
+    {
+      "idx": 4,
+      "game_x": 479,
+      "game_y": 132,
+      "label": "lv1",
+      "status": "done"
+    },
+    {
+      "idx": 5,
+      "game_x": 479,
+      "game_y": 131,
+      "label": "lv1",
+      "status": "done"
+    },
+    {
+      "idx": 6,
+      "game_x": 479,
+      "game_y": 130,
+      "label": "lv2",
+      "status": "done"
+    },
+    {
+      "idx": 7,
+      "game_x": 479,
+      "game_y": 129,
+      "label": "Diem 7",
+      "status": "waiting"
+    },
+    {
+      "idx": 8,
+      "game_x": 479,
+      "game_y": 128,
+      "label": "Diem 8",
+      "status": "waiting"
+    },
+    {
+      "idx": 9,
+      "game_x": 478,
+      "game_y": 128,
+      "label": "Diem 9",
+      "status": "waiting"
+    },
+    {
+      "idx": 10,
+      "game_x": 477,
+      "game_y": 128,
+      "label": "Diem 10",
+      "status": "waiting"
+    },
+    {
+      "idx": 11,
+      "game_x": 477,
+      "game_y": 127,
+      "label": "Diem 11",
+      "status": "waiting"
+    },
+    {
+      "idx": 12,
+      "game_x": 476,
+      "game_y": 127,
+      "label": "Diem 12",
+      "status": "waiting"
+    },
+    {
+      "idx": 13,
+      "game_x": 475,
+      "game_y": 127,
+      "label": "Diem 13",
+      "status": "waiting"
+    },
+    {
+      "idx": 14,
+      "game_x": 474,
+      "game_y": 127,
+      "label": "Diem 14",
+      "status": "waiting"
+    },
+    {
+      "idx": 15,
+      "game_x": 473,
+      "game_y": 127,
+      "label": "Diem 15",
+      "status": "waiting"
+    },
+    {
+      "idx": 16,
+      "game_x": 472,
+      "game_y": 127,
+      "label": "Diem 16",
+      "status": "waiting"
+    }
+  ],
+  "_build_tasks": [
+    {
+      "name": "Nhà chính",
+      "tap_x": 342,
+      "tap_y": 490,
+      "level": 6,
+      "target_lv": 10,
+      "enabled": true,
+      "build_done": 1775012874.1209857
+    },
+    {
+      "name": "Nhà rèn",
+      "tap_x": 234,
+      "tap_y": 704,
+      "level": 3,
+      "target_lv": 3,
+      "enabled": true,
+      "build_done": 1775012524.6202078
+    },
+    {
+      "name": "Nhà lính",
+      "tap_x": 342,
+      "tap_y": 704,
+      "level": 2,
+      "target_lv": 3,
+      "enabled": true,
+      "build_done": 0
+    },
+    {
+      "name": "Nhà tướng",
+      "tap_x": 450,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Kho",
+      "tap_x": 450,
+      "tap_y": 576,
+      "level": 3,
+      "target_lv": 5,
+      "enabled": true,
+      "build_done": 0
+    },
+    {
+      "name": "Kho lúa",
+      "tap_x": 450,
+      "tap_y": 533,
+      "level": 3,
+      "target_lv": 5,
+      "enabled": true,
+      "build_done": 0
+    },
+    {
+      "name": "Nhà thương",
+      "tap_x": 306,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Chợ",
+      "tap_x": 234,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 5,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Nhà level",
+      "tap_x": 414,
+      "tap_y": 704,
+      "level": 1,
+      "target_lv": 10,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đại sứ quán",
+      "tap_x": 234,
+      "tap_y": 533,
+      "level": 2,
+      "target_lv": 15,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Đất",
+      "tap_x": 306,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 15,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Trụ",
+      "tap_x": 378,
+      "tap_y": 576,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    },
+    {
+      "name": "Tường thành",
+      "tap_x": 522,
+      "tap_y": 490,
+      "level": 1,
+      "target_lv": 20,
+      "enabled": false,
+      "build_done": 0
+    }
+  ],
+  "_wave_groups": [
+    {
+      "name": "Nhóm 1",
+      "troop_names": [
+        "digdef2"
+      ],
+      "points": [
+        {
+          "x": 217,
+          "y": 390,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 217,
+          "y": 389,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 217,
+          "y": 388,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 216,
+          "y": 388,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 215,
+          "y": 388,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 214,
+          "y": 388,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 213,
+          "y": 388,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 212,
+          "y": 388,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 211,
+          "y": 388,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 213,
+          "y": 387,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 212,
+          "y": 389,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 212,
+          "y": 390,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 212,
+          "y": 391,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 212,
+          "y": 392,
+          "label": "lv1",
+          "status": "process"
+        }
+      ],
+      "enabled": true,
+      "heal_every": 0,
+      "heal_step": 0,
+      "heal_x": 500,
+      "heal_y": 300,
+      "heal_on_done": false,
+      "cooldown_sec": 140,
+      "lv2_cooldown_sec": 200,
+      "lv3_cooldown_sec": 0,
+      "lv4_cooldown_sec": 0
+    },
+    {
+      "name": "Nhóm 2",
+      "troop_names": [
+        "digdef3"
+      ],
+      "points": [
+        {
+          "x": 229,
+          "y": 411,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 229,
+          "y": 410,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 229,
+          "y": 409,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 229,
+          "y": 408,
+          "label": "lv1",
+          "status": "done"
+        },
+        {
+          "x": 229,
+          "y": 407,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 228,
+          "y": 407,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 227,
+          "y": 407,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 226,
+          "y": 407,
+          "label": "lv2",
+          "status": "done"
+        },
+        {
+          "x": 227,
+          "y": 406,
+          "label": "lv2",
+          "status": "process"
+        }
+      ],
+      "enabled": true,
+      "heal_every": 0,
+      "heal_step": 0,
+      "heal_x": 500,
+      "heal_y": 300,
+      "heal_on_done": false,
+      "cooldown_sec": 140,
+      "lv2_cooldown_sec": 200,
+      "lv3_cooldown_sec": 0,
+      "lv4_cooldown_sec": 0
+    }
+  ],
+  "_scout_cfg": {
+    "ox": "574",
+    "oy": "310",
+    "up": "5",
+    "down": "5",
+    "left": "5",
+    "right": "5"
+  }
+}
