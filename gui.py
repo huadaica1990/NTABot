@@ -126,13 +126,17 @@ class GUI(tk.Tk):
         self.destroy()
 
     def _update_title(self, name: str = ""):
-        """Cập nhật title cửa sổ theo profile."""
+        """Cập nhật title cửa sổ + header theo profile."""
         name = name or self._current_profile or "default"
         self._current_profile = name
         if name == "default":
             self.title("Nine Acres  —  Grid Attack Bot")
+            if hasattr(self, 'lbl_header'):
+                self.lbl_header.config(text="⚔  Nine Acres  —  Grid Attack")
         else:
             self.title(f"Nine Acres  —  [{name}]")
+            if hasattr(self, 'lbl_header'):
+                self.lbl_header.config(text=f"⚔  Nine Acres  —  [{name}]")
         # Sync Telegram device label
         if hasattr(self, 'tg_bot'):
             self.tg_bot.device_label = f"{name} @ {self.cfg.device_serial}"
@@ -355,16 +359,34 @@ class GUI(tk.Tk):
         # Header
         hdr = tk.Frame(self, bg=C["panel"], height=54)
         hdr.pack(fill="x"); hdr.pack_propagate(False)
-        tk.Label(hdr, text="⚔  Nine Acres  —  Grid Attack",
+        self.lbl_header = tk.Label(hdr, text="⚔  Nine Acres  —  Grid Attack",
                  font=("Segoe UI", 14, "bold"),
-                 bg=C["panel"], fg=C["accent"]).pack(
-            side="left", padx=18, pady=14)
+                 bg=C["panel"], fg=C["accent"])
+        self.lbl_header.pack(side="left", padx=18, pady=14)
         self.lbl_state = tk.Label(hdr, text="● IDLE",
                                    font=("Consolas", 11, "bold"),
                                    bg=C["panel"], fg=C["muted"])
         self.lbl_state.pack(side="right", padx=18)
 
-
+        # Status bar — hiển thị engine nào đang chạy
+        self._status_bar = tk.Frame(self, bg="#1a1d2e", height=26)
+        self._status_bar.pack(fill="x", padx=6, pady=(2, 0))
+        self._status_bar.pack_propagate(False)
+        self._status_labels = {}
+        for key, icon, name in [("atk", "⚔", "Tấn công"), ("build", "🏗", "Xây dựng"),
+                                 ("wave", "🌊", "Nhiều đợt"), ("spin", "🎰", "Quay"),
+                                 ("autolv", "⬆", "Auto Lv")]:
+            lbl = tk.Label(self._status_bar, text=f"{icon} {name}: —",
+                           bg="#1a1d2e", fg=C["muted"],
+                           font=("Segoe UI", 8), padx=6)
+            lbl.pack(side="left")
+            self._status_labels[key] = (lbl, icon, name)
+        # Telegram indicator
+        tg_lbl = tk.Label(self._status_bar, text="📱 Telegram: OFF",
+                           bg="#1a1d2e", fg=C["muted"],
+                           font=("Segoe UI", 8), padx=6)
+        tg_lbl.pack(side="right")
+        self._status_labels["tg"] = (tg_lbl, "📱", "Telegram")
 
         # Notebook tabs
         nb = ttk.Notebook(self)
@@ -6042,7 +6064,72 @@ class GUI(tk.Tk):
             else:
                 dot.config(fg=C["muted"], text="○")
                 lbl.config(fg=C["muted"], font=("Consolas", 9))
+        self._refresh_status_bar()
         self.after(500, self._tick)
+
+    def _refresh_status_bar(self):
+        """Cập nhật thanh trạng thái engine."""
+        if not hasattr(self, '_status_labels'):
+            return
+        green, yellow, red, muted = C["green"], C["yellow"], C["red"], C["muted"]
+
+        def _set(key, status_text, color):
+            lbl, icon, name = self._status_labels[key]
+            lbl.config(text=f"{icon} {name}: {status_text}", fg=color)
+
+        # Attack
+        s = self.bot.state
+        if s == State.IDLE:
+            _set("atk", "Idle", muted)
+        elif s == State.COOLDOWN:
+            _set("atk", "Cooldown", yellow)
+        elif s == State.DONE:
+            _set("atk", "Done", green)
+        elif s == State.HEALING:
+            _set("atk", "Healing", yellow)
+        else:
+            _set("atk", s.name, green)
+
+        # Build
+        build_running = (hasattr(self, 'build_eng')
+                         and self.build_eng._thread is not None
+                         and self.build_eng._thread.is_alive())
+        _set("build", "Đang xây" if build_running else "Idle",
+             green if build_running else muted)
+
+        # Wave
+        wave_statuses = []
+        for eng in getattr(self, '_wave_engines', []):
+            if eng.status in ("running", "waiting"):
+                wave_statuses.append(eng.status)
+        if wave_statuses:
+            running = sum(1 for s in wave_statuses if s == "running")
+            waiting = sum(1 for s in wave_statuses if s == "waiting")
+            parts = []
+            if running: parts.append(f"{running} chạy")
+            if waiting: parts.append(f"{waiting} chờ")
+            _set("wave", ", ".join(parts), green)
+        else:
+            _set("wave", "Idle", muted)
+
+        # Spin
+        spin_status = getattr(self.spin_eng, 'status', 'idle') if hasattr(self, 'spin_eng') else 'idle'
+        if spin_status == "spinning":
+            _set("spin", "Đang quay", green)
+        elif spin_status == "cooldown":
+            _set("spin", "Cooldown", yellow)
+        else:
+            _set("spin", "Idle", muted)
+
+        # Auto Lv
+        alv_running = getattr(self, '_alv_running', False)
+        _set("autolv", "Đang chạy" if alv_running else "Idle",
+             green if alv_running else muted)
+
+        # Telegram
+        tg_on = hasattr(self, 'tg_bot') and self.tg_bot.is_running
+        _set("tg", "ON" if tg_on else "OFF",
+             green if tg_on else muted)
 
 
 # ──────────────────────────────────────────────

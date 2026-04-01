@@ -44,9 +44,9 @@
   "health_critical_ratio": 0.25,
   "health_force_heal_critical_units": 2,
   "anthropic_api_key": "",
-  "telegram_enabled": false,
-  "telegram_token": "",
-  "telegram_chat_id": "",
+  "telegram_enabled": true,
+  "telegram_token": "8767277368:AAFO2Sto4tzk9AT7a_yvWyNq3oFq7N2IG_8",
+  "telegram_chat_id": "1174865156",
   "_points": [
     {
       "idx": 1,
@@ -160,7 +160,7 @@
       "name": "Kho",
       "tap_x": 450,
       "tap_y": 576,
-      "level": 1,
+      "level": 3,
       "target_lv": 5,
       "enabled": true,
       "build_done": 0
@@ -169,7 +169,7 @@
       "name": "Kho lúa",
       "tap_x": 450,
       "tap_y": 533,
-      "level": 1,
+      "level": 3,
       "target_lv": 5,
       "enabled": true,
       "build_done": 0
@@ -205,7 +205,7 @@
       "name": "Đại sứ quán",
       "tap_x": 234,
       "tap_y": 533,
-      "level": 1,
+      "level": 2,
       "target_lv": 15,
       "enabled": false,
       "build_done": 0
