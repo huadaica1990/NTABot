@@ -1,0 +1,4 @@
+# Dependencies
+__pycache__/
+debug/
+debug_ocr/
