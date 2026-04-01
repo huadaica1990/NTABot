@@ -1,136 +1,42 @@
 {
   "coords": [
     [
-      244,
-      382,
+      474,
+      120,
+      "",
       ""
     ],
     [
-      240,
-      344,
+      499,
+      144,
+      "",
       ""
     ],
     [
-      230,
-      328,
+      510,
+      125,
+      "",
       ""
     ],
     [
-      249,
-      418,
+      458,
+      131,
+      "",
       ""
     ],
     [
-      255,
-      403,
+      482,
+      157,
+      "",
       ""
     ],
     [
-      259,
-      387,
-      ""
-    ],
-    [
-      260,
-      372,
-      ""
-    ],
-    [
-      256,
-      352,
-      ""
-    ],
-    [
-      214,
-      366,
-      ""
-    ],
-    [
-      274,
-      355,
+      500,
+      164,
+      "",
       ""
     ]
   ],
-  "results": {
-    "244,382": {
-      "label": "enemy_city",
-      "name": "oe The  ot",
-      "truce": "",
-      "protection": "⚠️ Hết bảo vệ",
-      "raw_title": "oe The, ‘ ot\nBaddie\nme, mh, (1 (244,382) my\nWIZ Sanne —_ <a\n@rrucesorras | [tomar\n| 41 m IG",
-      "raw_btn": "S< Conquer\n62 Info\nwit : 17 ."
-    },
-    "240,344": {
-      "label": "enemy_city",
-      "name": "Chanel",
-      "truce": "",
-      "protection": "⚠️ Hết bảo vệ",
-      "raw_title": "Chanel\n(1 (240,344) wy or\nr a “a, |\n[PiAwz 2 ae — ,\n@)Truce39:17:27 | Fo 3% Conquer |\nen a ib oo O\n.. ‘a So rhe, a |\nny",
-      "raw_btn": "S< Conquer\n62 Info\name 2 17 ."
-    },
-    "230,328": {
-      "label": "enemy_city",
-      "name": "Ah Xiao O",
-      "truce": "39:17:08",
-      "protection": "🛡 Còn bảo vệ 39:17:08",
-      "raw_title": "‘ ‘ voi\n| vs — = \" —\nAh Xiao O\nSr (230,328) We\n(*) Truce 39:17:08 irrenh\n“Ad ra 45 . |",
-      "raw_btn": "S< Conquer\n62 Info"
-    },
-    "249,418": {
-      "label": "enemy_city",
-      "name": "rs to.",
-      "truce": "39:16:49",
-      "protection": "🛡 Còn bảo vệ 39:16:49",
-      "raw_title": "rs to.\nASBH\n. (1 (249,418) wy f. (P}, :\nRRA “ee ‘\n() Truce 39:16:49 earn.\n| Mm |G\nny | es |",
-      "raw_btn": "S< Conquer\n62 Info\nann 6 .\nI os a) Ay le"
-    },
-    "255,403": {
-      "label": "enemy",
-      "name": "ti. a. PES i",
-      "truce": "39:16:30",
-      "protection": "🛡 Còn bảo vệ 39:16:30",
-      "raw_title": ": r=, Lo !\nti. a. PES i\n_ AA =}\nPO) USL (255,403) iy ¥ |\n@ 200/200 BY do ‘ [RR mfo\n[ti Darklegion JCananad, re\n(*) Truce 39:16:30 gr\n=) *",
-      "raw_btn": ">< Conquer\n( oe) bey"
-    },
-    "259,387": {
-      "label": "enemy_city",
-      "name": "am oth ars 4",
-      "truce": "",
-      "protection": "⚠️ Hết bảo vệ",
-      "raw_title": "am oth ars 4\ni: L, on aan an\nAQF OE\n. my PE (259,387) my on,\n[ri #8 Darkness _ E\n= peu itees [2s Cona L\nny Es =",
-      "raw_btn": "S< Conquer\n62 Info"
-    },
-    "260,372": {
-      "label": "enemy_city",
-      "name": "oo te 7",
-      "truce": "",
-      "protection": "⚠️ Hết bảo vệ",
-      "raw_title": "* ; atl\nmn. ,\noo] te® 7\n1 1)\n—— flow\n| fri INH CBN =: |\n) a | og x q “\nL ey\na mh a. Ad s\na\nthat FT",
-      "raw_btn": "S< Conquer\n62 Info\n2 ‘ 15 .\nie 260.372) ey"
-    },
-    "256,352": {
-      "label": "enemy_city",
-      "name": "as Ad",
-      "truce": "39:15:31",
-      "protection": "🛡 Còn bảo vệ 39:15:31",
-      "raw_title": "as Ad\n. a i=, re\n.\" Darklong\nL, cr (256,352) | (PB), :\n[= GoJo oo. |\n>| &) Truce 39:15:31 tg\nrhe, Al As a\nonf$nn Hom\nny",
-      "raw_btn": "S< Conquer\n62 Info\n© (256352)"
-    },
-    "214,366": {
-      "label": "?",
-      "name": "mh mh  et",
-      "truce": "39:15:12",
-      "protection": "🛡 Còn bảo vệ 39:15:12",
-      "raw_title": "mh, mh, “ et\n; ChrisJohnYT\n= F heel\n[Ti Darkblade _\n@ truce 39:15:12 |} |! to\n: B irs . | \\O; a\n- _ | | . _ Y\n|_| |",
-      "raw_btn": ""
-    },
-    "274,355": {
-      "label": "enemy_city",
-      "name": "ms an Th t.",
-      "truce": "39:14:54",
-      "protection": "🛡 Còn bảo vệ 39:14:54",
-      "raw_title": "ms an Th, t.,\n1. | oe ae)\ngaugiacuichuoi\n280/280 oll moa\n\"1 (ti Gouo sCunaned, —\n(*) Truce 39:14:54 ‘on!\nee,\nmh, ad fae Fs\n“\nee |",
-      "raw_btn": "S< Conquer\n62 Info\n5o000 |"
-    }
-  }
+  "results": {},
+  "alliances": ""
 }

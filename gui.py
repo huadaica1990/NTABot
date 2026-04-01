@@ -243,12 +243,21 @@ class GUI(tk.Tk):
             os.makedirs(CONFIG_DIR, exist_ok=True)
             path = self._spy_data_path()
             results = getattr(self, "_spy_results", {})
+            ally_text = ""
+            if hasattr(self, "_spy_alliance_entry"):
+                ally_text = self._spy_alliance_entry.get().strip()
             data = {
-                "coords": [[x, y, note] for x, y, note in coords],
+                "coords": [
+                    [c[0], c[1],
+                     c[2] if len(c) > 2 else "",
+                     c[3] if len(c) > 3 else ""]
+                    for c in coords
+                ],
                 "results": {
                     f"{k[0]},{k[1]}": v
                     for k, v in results.items()
-                }
+                },
+                "alliances": ally_text
             }
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
@@ -277,11 +286,20 @@ class GUI(tk.Tk):
             for row in data.get("coords", []):
                 if len(row) >= 2:
                     self._spy_coords.append([int(row[0]), int(row[1]),
-                                              row[2] if len(row) > 2 else ""])
+                                              row[2] if len(row) > 2 else "",
+                                              row[3] if len(row) > 3 else ""])
             for k, v in data.get("results", {}).items():
                 parts = k.split(",")
                 if len(parts) == 2:
                     self._spy_results[(int(parts[0]), int(parts[1]))] = v
+            # Load alliance text
+            ally_text = data.get("alliances", "")
+            if isinstance(ally_text, list):
+                ally_text = ", ".join(ally_text)
+            if hasattr(self, "_spy_alliance_entry"):
+                self._spy_alliance_entry.delete(0, "end")
+                self._spy_alliance_entry.insert(0, ally_text)
+                self._spy_parse_alliances()
             if hasattr(self, "_spy_refresh_tree"):
                 self._spy_refresh_tree()
             self._spy_loaded = True
@@ -2468,7 +2486,7 @@ class GUI(tk.Tk):
             added = 0
             for x, y in coords:
                 if not any(c[0]==x and c[1]==y for c in self._spy_coords):
-                    self._spy_coords.append([x, y, f"Spiral {d}"])
+                    self._spy_coords.append([x, y, f"Spiral {d}", ""])
                     added += 1
             self._spy_refresh_tree()
             spy_btn.config(text=f"✅ Import {added} → Spy!")
@@ -3094,10 +3112,11 @@ class GUI(tk.Tk):
     # TAB: DO THÁM
     # ────────────────────────────────────────────────────────
     def _build_spy_tab(self, p):
-        self._spy_coords    = []   # list of [x, y, note]
+        self._spy_coords    = []   # list of [x, y, note, alliance]
         self._spy_results   = {}   # (x,y) -> {"label","note","raw_title","raw_btn"}
         self._spy_running   = False
         self._spy_loaded    = False  # True sau khi _spy_load chạy xong
+        self._spy_alliances_list = []  # parsed alliance names
 
         paned = ttk.PanedWindow(p, orient="horizontal")
         paned.pack(fill="both", expand=True)
@@ -3106,6 +3125,16 @@ class GUI(tk.Tk):
 
         # ── LEFT: Cấu hình + danh sách toạ độ ──
         cfg_sec = self._sec(lf, "Danh sách toạ độ do thám")
+
+        # ── Alliance row ──
+        ally_row = tk.Frame(cfg_sec, bg=C["panel"]); ally_row.pack(fill="x", padx=4, pady=(4,2))
+        tk.Label(ally_row, text="🏴 Liên minh:", bg=C["panel"], fg=C["text"],
+                 font=("Segoe UI", 9)).pack(side="left")
+        self._spy_alliance_entry = tk.Entry(ally_row, width=40, bg=C["entry"], fg=C["text"],
+                                             insertbackground="white", relief="flat",
+                                             font=("Segoe UI", 9))
+        self._spy_alliance_entry.pack(side="left", padx=4, fill="x", expand=True)
+        self._spy_alliance_entry.bind("<KeyRelease>", lambda e: self._spy_parse_alliances())
 
         # Add row
         add_row = tk.Frame(cfg_sec, bg=C["panel"]); add_row.pack(fill="x", padx=4, pady=4)
@@ -3127,17 +3156,26 @@ class GUI(tk.Tk):
                                     insertbackground="white", relief="flat",
                                     font=("Segoe UI", 9))
         self._spy_enote.pack(side="left", padx=2)
+        tk.Label(add_row, text="LM:", bg=C["panel"], fg=C["text"],
+                 font=("Segoe UI", 9)).pack(side="left", padx=(6,2))
+        self._spy_alliance_var = tk.StringVar()
+        self._spy_alliance_cb = ttk.Combobox(add_row, textvariable=self._spy_alliance_var,
+                                              width=10, font=("Segoe UI", 9))
+        self._spy_alliance_cb.pack(side="left", padx=2)
         tk.Button(add_row, text="➕", bg=C["accent"], fg="white",
                   relief="flat", font=("Segoe UI", 9, "bold"), padx=6, pady=2,
                   command=self._spy_add_coord).pack(side="left", padx=4)
+        # Enter trên bất kỳ ô nào → tự thêm toạ độ
+        for w in (self._spy_ex, self._spy_ey, self._spy_enote, self._spy_alliance_cb):
+            w.bind("<Return>", lambda e: self._spy_add_coord())
 
         # Treeview danh sách toạ độ
         tbl_frame = tk.Frame(cfg_sec, bg=C["panel"])
         tbl_frame.pack(fill="both", expand=True, padx=4, pady=2)
-        spy_cols = ("#", "X", "Y", "Ghi chú", "Loại", "Bảo vệ", "🗺")
+        spy_cols = ("#", "X", "Y", "Ghi chú", "LM", "Loại", "Bảo vệ", "🗺")
         self._spy_tree = ttk.Treeview(tbl_frame, columns=spy_cols,
                                        show="headings", height=12)
-        for col, w in [("#",30),("X",50),("Y",50),("Ghi chú",80),("Loại",60),("Bảo vệ",120),("🗺",36)]:
+        for col, w in [("#",30),("X",50),("Y",50),("Ghi chú",70),("LM",60),("Loại",60),("Bảo vệ",110),("🗺",36)]:
             self._spy_tree.heading(col, text=col)
             self._spy_tree.column(col, width=w, anchor="center")
         sb = ttk.Scrollbar(tbl_frame, orient="vertical",
@@ -3239,10 +3277,20 @@ class GUI(tk.Tk):
         t.see("end")
         t.configure(state="disabled")
 
+    def _spy_parse_alliances(self):
+        """Parse alliance text entry → update combobox values."""
+        raw = self._spy_alliance_entry.get().strip()
+        names = [n.strip() for n in raw.split(",") if n.strip()]
+        self._spy_alliances_list = names
+        self._spy_alliance_cb["values"] = names
+
     def _spy_refresh_tree(self):
         tree = self._spy_tree
         tree.delete(*tree.get_children())
-        for i, (x, y, note) in enumerate(self._spy_coords):
+        for i, coord in enumerate(self._spy_coords):
+            x, y = coord[0], coord[1]
+            note = coord[2] if len(coord) > 2 else ""
+            alliance = coord[3] if len(coord) > 3 else ""
             res = self._spy_results.get((x, y), {})
             lbl = res.get("label", "")
             tag = "ok" if lbl and lbl not in ("?","") else ("err" if lbl == "?" else "")
@@ -3250,7 +3298,7 @@ class GUI(tk.Tk):
             expiry = self._calc_truce_expiry(res.get("truce",""))
             prot_disp = f"{protection} → {expiry}" if expiry and "Còn" in protection else protection
             tree.insert("", "end", iid=str(i),
-                        values=(i+1, x, y, note, lbl, prot_disp, "🗺"), tags=(tag,))
+                        values=(i+1, x, y, note, alliance, lbl, prot_disp, "🗺"), tags=(tag,))
 
     def _spy_add_coord(self):
         try:
@@ -3259,13 +3307,14 @@ class GUI(tk.Tk):
         except ValueError:
             messagebox.showerror("Lỗi", "X, Y phải là số nguyên"); return
         note = self._spy_enote.get().strip()
+        alliance = self._spy_alliance_var.get().strip()
         # Tránh trùng
         if any(c[0] == x and c[1] == y for c in self._spy_coords):
             messagebox.showinfo("", f"({x},{y}) đã có trong danh sách"); return
-        self._spy_coords.append([x, y, note])
+        self._spy_coords.append([x, y, note, alliance])
         self._spy_refresh_tree()
         self._spy_ex.delete(0, "end"); self._spy_ey.delete(0, "end")
-        self._spy_enote.delete(0, "end")
+        self._spy_enote.delete(0, "end"); self._spy_alliance_var.set("")
 
     def _spy_del_coord(self):
         sel = self._spy_tree.selection()
@@ -3285,7 +3334,10 @@ class GUI(tk.Tk):
         sel = self._spy_tree.selection()
         if not sel: return
         idx = int(sel[0])
-        x, y, note = self._spy_coords[idx]
+        coord = self._spy_coords[idx]
+        x, y = coord[0], coord[1]
+        note = coord[2] if len(coord) > 2 else ""
+        alliance = coord[3] if len(coord) > 3 else ""
         dlg = tk.Toplevel(self)
         dlg.title(f"Sửa toạ độ #{idx+1}")
         dlg.configure(bg=C["bg"]); dlg.resizable(False, False); dlg.grab_set()
@@ -3305,14 +3357,21 @@ class GUI(tk.Tk):
         en = tk.Entry(dlg, width=16, bg=C["entry"], fg=C["text"],
                       insertbackground="white", relief="flat"); en.insert(0,note)
         en.grid(row=2,column=1,**pad)
+        tk.Label(dlg, text="Liên minh:", bg=C["bg"], fg=C["text"],
+                 font=("Segoe UI",9)).grid(row=3,column=0,sticky="e",**pad)
+        alliance_var = tk.StringVar(value=alliance)
+        alliance_cb = ttk.Combobox(dlg, textvariable=alliance_var, width=14,
+                                    font=("Segoe UI",9),
+                                    values=self._spy_alliances_list)
+        alliance_cb.grid(row=3,column=1,**pad)
         def _save():
             try: nx,ny = int(ex.get()), int(ey.get())
             except ValueError: messagebox.showerror("Lỗi","X,Y phải là số"); return
-            self._spy_coords[idx] = [nx, ny, en.get().strip()]
+            self._spy_coords[idx] = [nx, ny, en.get().strip(), alliance_var.get().strip()]
             self._spy_refresh_tree(); dlg.destroy()
         tk.Button(dlg, text="💾 Lưu", bg=C["accent"], fg="white", relief="flat",
                   font=("Segoe UI",9,"bold"), padx=12, pady=4,
-                  command=_save).grid(row=3,column=0,columnspan=2,pady=8)
+                  command=_save).grid(row=4,column=0,columnspan=2,pady=8)
         dlg.update_idletasks()
         x0 = self.winfo_x()+(self.winfo_width()-dlg.winfo_width())//2
         y0 = self.winfo_y()+(self.winfo_height()-dlg.winfo_height())//2
@@ -3366,13 +3425,14 @@ class GUI(tk.Tk):
         region = self._spy_tree.identify_region(event.x, event.y)
         if region != "cell": return
         col_id = self._spy_tree.identify_column(event.x)
-        # Cột #7 (index 6) là cột 🗺
-        if col_id != "#7": return
+        # Cột #8 (index 7) là cột 🗺
+        if col_id != "#8": return
         row_id = self._spy_tree.identify_row(event.y)
         if not row_id: return
         try:
             idx = int(row_id)
-            x, y, note = self._spy_coords[idx]
+            x, y = self._spy_coords[idx][0], self._spy_coords[idx][1]
+            note = self._spy_coords[idx][2] if len(self._spy_coords[idx]) > 2 else ""
         except (ValueError, IndexError): return
 
         if self._spy_running:
@@ -3396,12 +3456,16 @@ class GUI(tk.Tk):
         sel = self._spy_tree.selection()
         if not sel: return
         idx = int(sel[0])
-        x, y, note = self._spy_coords[idx]
+        coord = self._spy_coords[idx]
+        x, y = coord[0], coord[1]
+        note = coord[2] if len(coord) > 2 else ""
+        alliance = coord[3] if len(coord) > 3 else ""
         res = self._spy_results.get((x, y), {})
         truce_str = res.get("truce", "")
         expiry    = self._calc_truce_expiry(truce_str)
         expiry_line = f"Hết bảo vệ lúc: {expiry}" if expiry else ""
         lines = [f"📍 ({x}, {y})  {note}",
+                 f"Liên minh: {alliance or '-'}",
                  f"Loại: {res.get('label','-')}",
                  f"Tên:  {res.get('name','-')}",
                  f"Bảo vệ: {res.get('protection','-')}"]
@@ -3427,8 +3491,9 @@ class GUI(tk.Tk):
                 try:
                     x, y = int(row[0]), int(row[1])
                     note = row[2].strip() if len(row) > 2 else ""
+                    alliance = row[3].strip() if len(row) > 3 else ""
                     if not any(c[0]==x and c[1]==y for c in self._spy_coords):
-                        self._spy_coords.append([x, y, note]); added += 1
+                        self._spy_coords.append([x, y, note, alliance]); added += 1
                 except (ValueError, IndexError): continue
         self._spy_refresh_tree()
         self._spy_log(f"Import {added} toạ độ từ CSV", "ok")
@@ -3443,10 +3508,13 @@ class GUI(tk.Tk):
         if not path: return
         with open(path, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
-            w.writerow(["X","Y","Ghi chú","Loại","Tên","Truce","Bảo vệ"])
-            for x, y, note in self._spy_coords:
+            w.writerow(["X","Y","Ghi chú","Liên minh","Loại","Tên","Truce","Bảo vệ"])
+            for coord in self._spy_coords:
+                x, y = coord[0], coord[1]
+                note = coord[2] if len(coord) > 2 else ""
+                alliance = coord[3] if len(coord) > 3 else ""
                 res = self._spy_results.get((x,y),{})
-                w.writerow([x, y, note, res.get("label",""), res.get("name",""),
+                w.writerow([x, y, note, alliance, res.get("label",""), res.get("name",""),
                             res.get("truce",""), res.get("protection","")])
         self._spy_log(f"Xuất {len(self._spy_coords)} dòng → {path}", "ok")
 
@@ -3485,8 +3553,10 @@ class GUI(tk.Tk):
         total  = len(coords)
         back_x, back_y = 342, 1216
 
-        for i, (x, y, note) in enumerate(coords):
+        for i, coord in enumerate(coords):
             if self._spy_stop_evt.is_set(): break
+            x, y = coord[0], coord[1]
+            note = coord[2] if len(coord) > 2 else ""
 
             self.after(0, lambda i=i,x=x,y=y: (
                 self._spy_progress_lbl.config(
@@ -3580,14 +3650,16 @@ class GUI(tk.Tk):
     def _spy_refresh_tree_row(self, idx, x, y):
         res = self._spy_results.get((x,y), {})
         lbl = res.get("label","")
-        note = self._spy_coords[idx][2] if idx < len(self._spy_coords) else ""
+        coord = self._spy_coords[idx] if idx < len(self._spy_coords) else [x, y, "", ""]
+        note = coord[2] if len(coord) > 2 else ""
+        alliance = coord[3] if len(coord) > 3 else ""
         tag = "ok" if lbl not in ("?","","enemy","enemy_city") else (
               "error" if lbl in ("?","") else "warn")
         try:
             protection = res.get("protection", "")
             expiry = self._calc_truce_expiry(res.get("truce",""))
             prot_disp = f"{protection} → {expiry}" if expiry and "Còn" in protection else protection
-            self._spy_tree.item(str(idx), values=(idx+1, x, y, note, lbl, prot_disp, "🗺"), tags=(tag,))
+            self._spy_tree.item(str(idx), values=(idx+1, x, y, note, alliance, lbl, prot_disp, "🗺"), tags=(tag,))
         except Exception: pass
 
     # ────────────────────────────────────────────────────────

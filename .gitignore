@@ -2,3 +2,6 @@
 __pycache__/
 debug/
 debug_ocr/
+.claude/
+.opencode/
+.repomixignore
